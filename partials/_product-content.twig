@@ -107,7 +107,7 @@
                   {% set step = loop.index - 1 %}
                   {% set default_variant = product.sku.modifiers[step] %}
                   {% for variant in attribute_variants %}
-                  <label for="{{ product.sku.id }}_{{ variant }}_{{ loop.index0 }}"><input id="{{ product.sku.id }}_{{ variant }}_{{ loop.index0 }}" type="radio" name="{{ step }}" value="{{ variant }}" class="js-variant-select" {% if default_variant == variant %}checked="checked"{% endif %}> {{ variant }}</label>
+                  <label for="{{ product.sku.id }}_{{ variant }}_{{ loop.index0 }}"><input id="{{ product.sku.id }}_{{ variant }}_{{ loop.index0 }}" type="radio" name="{{ step }}" value="{{ variant }}" class="js-variant-select" {% if default_variant == variant %}checked="checked"{% endif %}> {{ variant | title }}</label>
                   {% endfor %}
                 </div>
                 {% endif %}
