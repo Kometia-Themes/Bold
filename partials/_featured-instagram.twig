@@ -1,0 +1,15 @@
+<div class="container-fluid featured-instagram-home">
+  <div class="row">
+    <div class="col-sm-12">
+      {% if settings.heading_uppercase_titles %}
+      <h2 class="instagram-home__title text-center">{{ settings.instagram_title | upper }}</h2>
+      {% else %}
+      <h2 class="instagram-home__title text-center">{{ settings.instagram_title }}</h2>
+      {% endif %}
+      <hr class="spacer">
+    </div>
+    <div class="col-sm-12 instagram-home__container">
+      <div class="instagram"></div>
+    </div>
+  </div>
+</div>

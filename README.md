@@ -1,0 +1,1 @@
+# Shoperti Bold Theme

@@ -1,0 +1,13 @@
+<div class="nav-breadcrumb">
+  <div class="container margin-bottom">
+    <ul class="breadcrumb">
+      <li class="breadcrumb__link breadcrub--inactive"><a href="/">Inicio</a></li>
+      {% if sublevel is empty %}
+      <li class="breadcrumb__link breadcrub--active">{{ level }}</li>
+      {% else %}
+      <li class="breadcrumb__link breadcrub--inactive"><a href="/productos">{{ level }}</a></li>
+      <li class="breadcrumb__link breadcrub--active">{{ sublevel }}</li>
+      {% endif %}
+    </ul>
+  </div>
+</div>

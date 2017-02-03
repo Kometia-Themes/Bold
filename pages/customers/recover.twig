@@ -1,0 +1,40 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="container-fluid customer">
+  <div class="row">
+    <div class="col-xs-12 header">
+      {% if settings.heading_uppercase_titles %}
+      <h1 class="title page-title">{{ 'Recuperar Contraseña' | upper }}</h1>
+      {% else %}
+      <h1 class="title page-title">Recuperar Contraseña</h1>
+      {% endif %}
+      <p class="lead">Por favor ingresa tu correo electrónico. Recibirás un link para cambiar tu contraseña.</p>
+      <hr class="spacer">
+    </div>
+  </div>
+
+  <div class="row content">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+    {% form 'customer_recover_password' 'role="form" class="login-form"' %}
+      <div class="row row__inputs">
+        <div class="form-group">
+          <div class="input-group input-group-lg login-form__input">
+            <input type="email" class="form-control input-lg" id="email" name="email" placeholder="Correo electrónico" required>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <div class="form-group">
+            <button type="submit" class="btn btn-success login-form__button">Recuperar</button><a class="btn  btn-action btn-danger login-form__button" href="/cuenta/login">Cancelar</a>
+          </div>
+          ¿No estás registrado? <a href="/cuenta/registro">Crear cuenta</a>
+        </div>
+      </div>
+    {% endform %}
+    </div>
+  </div> <!-- .row -->
+</div> <!-- .container-fluid -->
+
+{% endblock %}

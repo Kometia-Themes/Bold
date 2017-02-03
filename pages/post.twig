@@ -1,0 +1,50 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="container-fluid post-page">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 header">
+      {% if settings.heading_uppercase_titles %}
+      <h1 class="title page-title">{{ post.title | upper }}</h1>
+      {% else %}
+      <h1 class="title page-title">{{ post.title }}</h1>
+      {% endif %}
+      <hr class="spacer">
+    </div>
+  </div>
+  <div class="row content">
+    <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+      <div class="post__info">
+        {% if post.tags | length > 0 %}
+        <ul class="list-inline">
+          {% for tag in post.tags %}
+          <li>
+            <a class="tags__list-item-link" href="/blogs/{{ blog.permalink }}/tags/{{ tag.permalink }}">
+              {{ tag.title }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        <p class="post-sumary">{{ post.summary | truncate_words(30) }}</p>
+        <p class="post-date">{{ post.published_at | datetime }}</p>
+        {% if settings.enable_share_blog %}
+          {% include '_social-share.twig' %}
+        {% endif %}
+      </div>
+    </div>
+  </div> <!-- .content -->
+  {% if post.image_url is not empty and post.image_url is defined %}
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 content__image">
+      <img alt="{{ post.name | escape }}" class="content__img" src="{{  post.image_url }}">
+    </div>
+  </div>
+  {% endif %}
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+      {{ post.content }}
+    </div>
+  </div> <!-- .content -->
+</div> <!-- .container-fluid -->
+{% endblock %}

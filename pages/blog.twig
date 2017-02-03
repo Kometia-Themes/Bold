@@ -1,0 +1,52 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="container-fluid blog-section">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 header">
+      {% if settings.heading_uppercase_titles %}
+      <h1 class="title page-title">{{ blog.title | upper }}</h1>
+      {% else %}
+      <h1 class="title page-title">{{ blog.title | upper }}</h1>
+      {% endif %}
+      <hr class="spacer">
+    </div>
+  </div>
+  <div class="row content">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      {% for posts_row in posts | batch(2) %}
+        <div class="row">
+        {% for post in posts_row %}
+          <div class="col-xs-12 col-md-6 post">
+            <div class="post__item">
+              <div class="post__item-image thumbnail_landscape">
+            {% if post.image_url is not empty and post.image_url is defined %}
+                <a class="image-link" href="/blogs/{{ blog.permalink }}/posts/{{ post.permalink }}" style="background-image: url('{{ post.image_url }}&w=460&h=286&fit=crop');">
+                  {% if post.image_url is not null %}
+                  <img class="fake" src="{{ post.image_url }}&w=100&h=100&fit=crop" alt="{{ post.title }}">
+                  {% endif %}
+                </a>
+            {% else %}
+                <a class="image-link img-placeholder" href="/blogs/{{ blog.permalink }}/posts/{{ post.permalink }}" style="background-image: url({{ 'placeholders/product-11.jpg' | global_img_url }});">
+                </a>
+            {% endif %}
+            </div>
+            <div class="post__item-description">
+              <h2 class="post__item-title"><a class="title-link" href="/blogs/{{ blog.permalink }}/posts/{{ post.permalink }}">
+                {% if settings.heading_uppercase_titles %}{{ post.title | upper }}{% else %}{{ post.title }}{% endif %}
+              </a></h2>
+              <p class="post__item-extract">{{ (post.summary is not empty ? post.summary : post.content) | truncate_words(30) }}</p>
+            </div>
+          </div> <!-- .post__item -->
+        </div> <!-- .post -->
+      {% endfor %}
+       </div> <!-- .row -->
+    {% endfor %}
+    </div> <!-- .col-xs-12.col-md-10.col-md-offset-1 -->
+    {% include '_pagination.twig' %}
+  </div> <!-- .content -->
+</div> <!-- .container-fluid -->
+
+{% endblock %}
+
+

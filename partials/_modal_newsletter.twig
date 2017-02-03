@@ -1,0 +1,27 @@
+<div class="modal fade" id="newsletterModal" tabindex="-1" role="dialog" aria-labelledby="newsletterModalLabel">
+  <div class="modal-dialog" role="document">
+    {% form 'newsletter' %}
+      {% if settings.newsletter_modal_image_enable and settings.newsletter_modal_background_image is not empty %}
+      <div class="modal-content" style="background-image:url({{ settings.newsletter_modal_background_image }})">
+      {% else %}
+      <div class="modal-content">
+      {% endif %}
+      <div class="modal-body">
+      {% if settings.heading_uppercase_titles %}
+        <h4 class="modal-title" id="newsletterModalLabel">{{ settings.newsletter_modal_title | upper }}</h4>
+      {% else %}
+        <h4 class="modal-title" id="newsletterModalLabel">{{ settings.newsletter_modal_title }}</h4>
+      {% endif %}
+        <p class="modal-description">{{ settings.newsletter_modal_description }}</p>
+        <div class="form-group">
+          <input type="email" class="form-control" name="email" id="email" placeholder="Correo electrónico" required>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">{{ settings.newsletter_modal_btn }}</button>
+      </div>
+    </div>
+    {% endform %}
+  </div>
+</div>

@@ -1,0 +1,35 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="container-fluid customer">
+  <div class="row">
+    <div class="col-xs-12 header">
+      {% if settings.heading_uppercase_titles %}
+      <h1 class="title page-title">{{ 'Restablecer contraseña' | upper }}</h1>
+      {% else %}
+      <h1 class="title page-title">Restablecer contraseña</h1>
+      {% endif %}
+      <hr class="spacer">
+    </div>
+  </div>
+  <div class="row content">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+    {% form 'customer_reset_password' 'role="form"' %}
+      <div class="row row__inputs">
+        <div class="form-group">
+          <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Nueva Contraseña" required>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control input-lg" id="password_confirmation" name="password_confirmation" placeholder="Confirmar Contraseña" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Restablecer</button>
+        </div>
+        <input type="hidden" name="token" value="{{ token }}">
+        <input type="hidden" name="email" value="{{ email }}">
+      </div>
+    {% endform %}
+    </div>
+  </div> <!-- .content -->
+</div> <!-- .container-fluid -->
+{% endblock %}

@@ -1,0 +1,32 @@
+{% if settings.home_banner_responsive %}
+<div class="container-fluid featured-banner-home">
+  <div class="banner-img">
+    <a class="banner-img__link" href="{{ settings.home_banner_btn_url }}">
+    <img class="banner-img__link-img" src="{{ settings.home_banner_image_url }}">
+    </a>
+  </div>
+</div>
+{% else %}
+<div class="container-fluid featured-banner-home">
+    <div class="overlay"></div>
+    <div class="banner_content {{ settings.home_banner_desc_align }}">
+      <h2 class="banner__title">
+        {% if settings.heading_uppercase_titles %}
+        {{ settings.home_banner_title | upper }}
+        {% else %}
+        {{ settings.home_banner_title }}
+        {% endif %}
+      </h2>
+      <p class="banner__intro">{{ settings.home_banner_desc }}</p>
+      {% if settings.home_banner_btn %}
+      <p class="banner__link"><a class="btn btn-lg" href="{{ settings.home_banner_btn_url }}">{{ settings.home_banner_btn_text }}</a></p>
+      {% endif %}
+    </div>
+  {% if settings.home_banner_image and settings.home_banner_image_url is not empty %}
+    <div class="banner_bg" style="background-image: url({{ settings.home_banner_image_url }})">
+  {% else %}
+    <div class="banner_bg">
+  {% endif %}
+    </div>
+</div>
+{% endif %}

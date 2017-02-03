@@ -1,0 +1,69 @@
+{% set featured_collections = [] %}
+{% for i in 1..6 %}
+  {% set featured_collection = 'featured_collection_' ~ i %}
+  {% if settings[featured_collection] is not empty and collections[settings[featured_collection]]is defined %}
+    {% set featured_collections = featured_collections | merge([collections[settings[featured_collection]]]) %}
+  {% endif %}
+{% endfor %}
+
+{% if featured_collections | length > 0 %}
+    <div class="container-fluid featured-collections-slider-home">
+      <div class="row">
+        <div class="collection-product col-xs-12 col-sm-6 col-sm-push-6 col-md-4 col-md-push-8 col-lg-3 col-lg-push-9">
+          <div class="outer">
+            <div class="inner">
+              {% if settings.heading_uppercase_titles %}
+              <h2 class="collection-product__title">{{ settings.home_collections_title | upper }}</h2>
+              {% else %}
+              <h2 class="collection-product__title">{{ settings.home_collections_title }}</h2>
+              {% endif %}
+              <hr class="spacer" />
+              <p class="collection-product__description">{{ settings.home_collections_description }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="slider-products col-xs-12 col-sm-6 col-sm-pull-6 col-md-8 col-md-pull-4 col-lg-9 col-lg-pull-3">
+          <div class="collections">
+          {% for collection in featured_collections  %}
+            {% if collection.image_url is not null %}
+              {% set image_url = collection.image_url %}
+            {% else %}
+              {% set image_url = 'placeholders/product-11.jpg' | global_img_url %}
+            {% endif %}
+            <div class="slider-products__product">
+              <a class="slider-products__link" href="/colecciones/{{ collection.permalink }}">
+                <img width="360" class="slider-products__image" src="{{ image_url }}&w=360&h=224">
+              </a>
+              <h3 class="slider-products__title">
+                <a class="slider-products__title-link" href="/colecciones/{{ collection.permalink }}">
+                {% if settings.heading_uppercase_titles %}
+                  {{ collection.title | upper }}
+                {% else %}
+                  {{ collection.title }}
+                {% endif %}
+                </a>
+              </h3>
+              <p>{{ collection.description }}</p>
+            </div>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+{% else %}
+  {% set image_url = 'placeholders/product-11.jpg' | global_img_url %}
+  <div class="container-fluid featured-products-slider-placeholder">
+    <div class="row placeholder">
+      <div class="col-xs-12">
+        <div class="main-product__content image-container img-placeholder" style="background-image: url('{{ image_url }}')">
+        </div>
+      </div>
+      <div class="col-xs-12 main-product__description">
+        <h3 class="main-product__subtitle">¡Falta poco!</h3>
+        <p>Esta sección mostrará tus productos destacados. Para definirlos dirígete al área de configuración del tema y asigna la colección que los contiene.</p>
+        <a class="btn btn-primary" href="/admin/collections" class="btn btn-placeholder">Gestionar colecciones</a>
+        <a class="btn btn-primary" href="/admin/themes" class="btn btn-placeholder">Ir a sección de temas</a>
+      </div>
+    </div>
+  </div>
+{% endif %}

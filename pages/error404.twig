@@ -1,0 +1,28 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="container-fluid simple-page">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 header">
+      {% if settings.heading_uppercase_titles %}
+      <h1 class="title page-title">{{ '¡Página no encontrada!' | upper }}</h1>
+      {% else %}
+      <h1 class="title page-title">¡Página no encontrada!</h1>
+      {% endif %}
+      <p class="lead">{{ collection.description | striptags }}</p>
+      <hr class="spacer">
+    </div>
+  </div>
+  <div class="row content">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+      <div class="row">
+        <div class="col-sm-12 section__title text-center">
+          <i class="fa fa-thumbs-o-down fa-5x" aria-hidden="true"></i>
+          <h3>Lo sentimos, no pudímos encontrar la página que estas buscando.</h3> 
+          <p>Puedes <a href="/">regresar al inicio</a></p>
+        </div>
+      </div>
+    </div>
+  </div> <!-- .content -->
+</div> <!-- .container-fluid -->
+{% endblock %}

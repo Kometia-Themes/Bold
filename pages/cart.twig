@@ -1,0 +1,109 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="container-fluid cart">
+  <div class="row">
+    <div class="col-xs-12 header">
+      {% if settings.heading_uppercase_titles %}
+      <h1 class="title page-title">{{ settings.cart_title | upper }}</h1>
+      {% else %}
+      <h1 class="title page-title">{{ settings.cart_title }}</h1>
+      {% endif %}
+      <p class="lead">{{ settings.cart_description }}</p>
+      <hr class="spacer">
+    </div>
+  </div>
+  {% if not cart or cart.items|length == 0 %}
+  <div class="row cart">
+    <div class="col-sm-12 text-center">
+      <p class="lead">No hay productos en el carrito.</p>
+    </div>
+  </div>
+  {% else %}
+  <div class="row content">
+    <div class="col-xs-12">
+      <table class="table table-responsive cart__resume-table">
+          <thead>
+            <tr>
+              <th class="hidden-xs"></th>
+              <th class="table__product-description">Producto</th>
+              <th class="table__product-items">Cantidad</th>
+              <th class="table__product-amount">Precio</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in cart.items %}
+            <tr>
+              <td class="hidden-xs cart__resume-table__product-thumbnail" align="center">
+                {% if item.sku.image_url is not empty %}
+                  <img class="img-responsive" src="{{ item.sku.image_url }}&w=100" width="100" alt="{{ item.product.name }}">
+                {% elseif item.product.image_url is not empty %}
+                  <img class="img-responsive" src="{{ item.product.image_url }}&w=100" width="100" alt="{{ item.product.name }}">
+                 {% else %}
+                  <img class="img-responsive" src="{{ 'placeholders/product-11.jpg' | global_img_url }}" width="100" alt="{{ item.product.name }}">
+                {% endif %}
+              </td>
+              <td>
+                <a class="cart__resume-table__product-name" href="/productos/{{ item.product.permalink }}">
+                {{ item.product.name }}{% if item.product.modifiers.count > 1 %} - {{ item.sku.name }}{% endif %}
+                </a>
+                <p class="cart__resume-table__product-excert">{{ item.product.excerpt | raw }}</p>
+              </td>
+              <td>
+                <form action="/carrito/actualizar" method="post">
+                  <input type="hidden" name="_method" value="patch">
+                  <input type="hidden" name="id" value="{{ item.id }}">
+                  <select class="cart__resume-table__product-quantity" name="quantity">
+                    {% for qty in 1..5 %}
+                      <option value="{{ qty }}"{{ qty == item.quantity ? ' selected="selected"' : null }}>{{ qty }}</option>
+                    {% endfor %}
+                  </select>
+                  <button class="btn btn-link" type="submit"><i class="mdi mdi-sync" aria-hidden="true"></i></span></button>
+                </form>
+              </td>
+              <td class="cart__resume-table__product-price">
+                 {{ item.total | money('symbol', 'code') }}
+              </td>
+              <td class="cart__resume-table__product-remove-column" width="5%">
+                <form action="/carrito/eliminar" method="post" class="text-center">
+                  <input type="hidden" name="_method" value="delete">
+                  <input type="hidden" name="id" value="{{ item.id }}">
+                  <input type="hidden" name="quantity" value="0">
+                  <button type="submit" class="btn btn-link cart__resume-table__product-remove"><i class="mdi mdi-window-close" aria-hidden="true"></i></button>
+                </form>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-8 col-lg-3 col-lg-offset-9 cart-totals">
+        <div class="cart-totals__container">
+          <h3 class="cart-total-row__title">TOTAL  {{ cart.total_price | money('symbol', 'code') }}</h3>
+           {% if store.is_tax_included %}
+          <p>IVA Incluído</p>
+           {% endif %}
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="pull-left go-payment__buy-more">
+          <a href="/productos" class="btn btn-primary text-uppercase">Comprar más {{ settings.cart_btn_more_text }}</a>
+        </div>
+        <div class="pull-right go-payment__buy-now">
+          <a href="/checkout" class="btn btn-primary text-uppercase">Proceder a comprar {{ settings.cart_btn_buy_text }}</a>
+        </div>
+      </div>
+
+
+    </div> <!-- .content -->
+
+  {% endif %}
+
+
+
+
+
+
+</div> <!-- .container-fluid -->
+{% endblock %}

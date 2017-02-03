@@ -1,0 +1,41 @@
+<div class="social__network">
+  <p class="social__title">Nuestras redes</p>
+  <div class="social-sharing">
+    {% if settings.facebook_link is not empty %}
+    <a target="_blank" href="{{ settings.facebook_link }}" class="btn btn-xs btn-icon icon-facebook" title="Facebook">
+    <i class="mdi mdi-facebook" aria-hidden="true"></i></a>
+    {% endif %}
+    {% if settings.twitter_link is not empty %}
+    <a target="_blank" href="{{ settings.twitter_link }}" class="btn btn-xs btn-icon icon-twitter" title="Twitter">
+    <i class="mdi mdi-twitter" aria-hidden="true"></i></a>
+    {% endif %}
+    {% if settings.google_link is not empty %}
+    <a target="_blank" href="{{ settings.google_link }}" class="btn btn-xs btn-icon icon-google-plus" title="Google Plus">
+    <i class="mdi mdi-google-plus" aria-hidden="true"></i></a>
+    {% endif %}
+    {% if settings.instagram_link is not empty %}
+    <a target="_blank" href="{{ settings.instagram_link }}" class="btn btn-xs btn-icon icon-instagram" title="Instagram">
+    <i class="mdi mdi-instagram" aria-hidden="true"></i></a>
+    {% endif %}
+    {% if settings.pinterest_link is not empty %}
+    <a target="_blank" href="{{ settings.pinterest_link }}" class="btn btn-xs btn-icon icon-pinterest" title="Pinterest">
+    <i class="mdi mdi-pinterest" aria-hidden="true"></i></a>
+    {% endif %}
+    {% if settings.youtube_link is not empty %}
+    <a target="_blank" href="{{ settings.youtube_link }}" class="btn btn-xs btn-icon icon-youtube" title="Youtube">
+    <i class="mdi mdi-youtube-play" aria-hidden="true"></i></a>
+    {% endif %}
+    {% if settings.vimeo_link is not empty %}
+    <a target="_blank" href="{{ settings.vimeo_link }}" class="btn btn-xs btn-icon icon-vimeo" title="Vimeo">
+    <i class="mdi mdi-vimeo" aria-hidden="true"></i></a>
+    {% endif %}
+    {% if settings.tumblr_link is not empty %}
+    <a target="_blank" href="{{ settings.tumblr_link }}" class="btn btn-xs btn-icon icon-tumblr" title="Tumblr">
+    <i class="mdi mdi-tumblr" aria-hidden="true"></i></a>
+    {% endif %}
+    {% if settings.whatsapp_link is not empty %}
+    <a target="_blank" href="tel:{{ settings.whatsapp_link }}" class="btn btn-xs btn-icon icon-whatsapp" title="Whatsapp">
+    <i class="mdi mdi-whatsapp" aria-hidden="true"></i></a>
+    {% endif %}
+  </div>
+</div>

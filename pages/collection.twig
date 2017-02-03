@@ -1,0 +1,47 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="container-fluid collection-page">
+  {% if collection.image_url is not null %}
+    {% set image_url = collection.image_url %}
+    {% set style = '' %}
+  {% else %}
+    {% set image_url = 'placeholders/product-11.jpg' | global_img_url %}
+    {% set style = 'img-placeholder' %}
+  {% endif %}
+
+  {% if settings.thumbnail_form == 'thumbnail_portrait' %}
+    {% set width = '380' %}
+    {% set height = '616' %}
+  {% elseif settings.thumbnail_form == 'thumbnail_landscape' %}
+    {% set width = '380' %}
+    {% set height = '235' %}
+  {% elseif settings.thumbnail_form == 'thumbnail_square' %}
+    {% set width = '380' %}
+    {% set height = '380' %}
+  {% endif %}
+
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 header">
+      {% if settings.heading_uppercase_titles %}
+      <h1 class="title page-title">{{ collection.title | upper }}</h1>
+      {% else %}
+      <h1 class="title page-title">{{ collection.title }}</h1>
+      {% endif %}
+      <p class="lead">{{ collection.description | striptags }}</p>
+      <hr class="spacer">
+    </div>
+  </div>
+  {% for products_row in products | batch(6) %}
+  <div class="row products__row">
+    {% for product in products_row %}
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      {% include '_product-card.twig' with {'width': width, 'height': height} %}
+    </div>
+  {% endfor %}
+  </div> <!-- .products__row -->
+{% endfor %}
+
+  {% include '_pagination.twig' %}
+</div> <!-- .container-fluid -->
+{% endblock %}

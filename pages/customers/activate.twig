@@ -1,0 +1,38 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="container-fluid customer">
+  <div class="row">
+    <div class="col-xs-12 header">
+      {% if settings.heading_uppercase_titles %}
+      <h1 class="title page-title">{{ 'Activar cuenta' | upper }}</h1>
+      {% else %}
+      <h1 class="title page-title">Activar cuenta</h1>
+      {% endif %}
+      <p class="lead">{{ settings.cart_description }}</p>
+      <hr class="spacer">
+    </div>
+  </div>
+  <div class="row content">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+    <div class="row row__inputs">
+      <div class="col-sm-12 ">
+      {% form 'customer_activate' 'role="form"' %}
+        <div class="form-group">
+          <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Nueva Contraseña" required>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control input-lg" id="password_confirmation" name="password_confirmation" placeholder="Confirmar Contraseña" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Activar cuenta</button>
+        </div>
+        <input type="hidden" name="token" value="{{ token }}">
+        <input type="hidden" name="email" value="{{ email }}">
+      {% endform %}
+      </div>
+    </div>
+    </div>
+  </div> <!-- .content -->
+</div> <!-- .container-fluid -->
+{% endblock %}

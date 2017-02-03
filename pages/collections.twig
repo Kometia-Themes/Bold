@@ -1,0 +1,70 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="container-fluid collections-page">
+
+{% if collections | length > 0 %}
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 header">
+      {% if settings.heading_uppercase_titles %}
+      <h1 class="title page-title">{{ 'Colecciones' | upper }}</h1>
+      {% else %}
+      <h1 class="title page-title">Colecciones</h1>
+      {% endif %}
+      <hr class="spacer">
+    </div>
+  </div>
+  <div class="row content">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+    {% for collection_row in collections | batch(2) %}
+      <div class="row">
+        {% for collection in collection_row %}
+        <div class="col-xs-12 col-md-6 collection">
+          {% if collection.image_url is not null %}
+          <div class="collection__item thumbnail_landscape" style="background-image: url('{{ collection.image_url }}&w=460&h=460&fit=crop');">
+            <div class="outer">
+                <div class="inner">
+                  <h2 class="collection-title">{{ collection.title }}</h2>
+                  <p class="collection-link"><a class="btn btn-primary" href="/colecciones/{{ collection.permalink }}">Ver</a></p>
+                </div>
+            </div>
+          </div>
+          {% else %}
+          <div class="collection__item img-placeholder thumbnail_landscape" style="background-image: url({{ 'placeholders/product-11.jpg' | global_img_url }});">
+            <div class="outer">
+                <div class="inner">
+                  <h2 class="collection-title">{{ collection.title }}</h2>
+                  <p class="collection-link"><a class="btn btn-primary" href="/colecciones/{{ collection.permalink }}">Ver</a></p>
+                </div>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+    </div>
+  {% include '_pagination.twig' %}
+  </div> <!-- .main-collections -->
+  {% else %}
+  <div class="row main-collections">
+    <div class="col-xs-12 section-vertical">
+      <div class="row collection">
+        <div class="col-xs-12 col-sm-6 col-md-push-6 img-background img-placeholder" style="background-image: url('{{'placeholders/product-11.jpg' | global_img_url }}');">
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-pull-6 collection__description" style="background-color:{{ settings.collection_bg_color_even }}">
+          <div class="outer">
+            <div class="inner">
+              <h2 class="collection-title">¡Falta poco!</h2>
+              <p class="collection-text">Todavía no existen Productos en la colección de <strong>Inicio</strong>, una vez que empieces a crearlos aparecerán aquí.</p>
+              <p><a class="collection-link" href="/admin/products">Gestionar Productos</a></p>
+              <p><a class="collection-link" href="/admin/collections">Gestionar Colecciones</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- .main-collections -->
+  {% endif %}
+</div> <!-- .container-fluid -->
+{% endblock %}

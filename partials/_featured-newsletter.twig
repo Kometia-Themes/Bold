@@ -1,0 +1,29 @@
+{% if settings.show_newsletter %}
+<div class="container featured-newsletter-home">
+    {% form 'newsletter' 'class=newsletter_form' %}
+    <div class="row">
+      {% if settings.featured_newsletter_text is not empty %}
+      <div class="col-sm-12">
+        <h2 class="newsletter__title {% if settings.featured_newsletter_text_shadow %}shadow{% endif %} text-center">
+      {% if settings.heading_uppercase_titles %}
+        {{ settings.featured_newsletter_text | upper }}
+      {% else %}
+        {{ settings.featured_newsletter_text }}
+      {% endif %}
+        </h2>
+      </div>
+      {% endif %}
+      <div class="col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 newsletter__email">
+        <input class="user_email" type="email" name="email" placeholder="Escribe tu email aquí" required>
+      </div>
+      <div class="col-sm-4 col-md-4 newsletter__submit">
+        <button type="submit" class="btn btn-lg">Suscríbete</button>
+      </div>
+    </div>
+    {% endform %}
+  {% if settings.featured_newsletter_overlay %}
+  <div class="overlay"></div>
+  {% endif %}
+  <div class="frame"></div>
+</div>
+{% endif %}
