@@ -889,6 +889,223 @@
           ]
         },
         {
+          "header": "Subtítulos",
+          "settings": [
+            {
+              "type": "select",
+              "id": "subheading_font",
+              "label": "Tipografía",
+              "default": "Google+Raleway",
+              "options": [
+                {
+                  "value": "Google+Arvo",
+                  "label": "Arvo",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Asap",
+                  "label": "Asap",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Cabin",
+                  "label": "Cabin",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Copse",
+                  "label": "Copse",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Droid+Sans",
+                  "label": "Droid Sans",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Droid+Serif",
+                  "label": "Droid Serif",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Gentium+Book+Basic",
+                  "label": "Gentium Book Basic",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Josefin+Slab",
+                  "label": "Josefin Slab",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Josefin+Sans",
+                  "label": "Josefin Sans",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Kanit",
+                  "label": "Kanit",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Kreon",
+                  "label": "Kreon",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Lato",
+                  "label": "Lato",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Lustria",
+                  "label": "Lustria",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Merriweather",
+                  "label": "Merriweather",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Old+Standard+TT",
+                  "label": "Old Standard TT",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Open+Sans",
+                  "label": "Open Sans",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Playfair+Display",
+                  "label": "Playfair Display",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Raleway",
+                  "label": "Raleway",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Roboto+Slab",
+                  "label": "Roboto Slab",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Source+Sans+Pro",
+                  "label": "Source Sans Pro",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "ProximaNovaLight",
+                  "label": "Proxima Nova",
+                  "group": "Web Fonts"
+                },
+                {
+                  "value": "Helvetica, Arial, sans-serif",
+                  "label": "Helvetica/Arial",
+                  "group": "Sans-serif"
+                },
+                {
+                  "value": "Impact, Charcoal, Helvetica, Arial, sans-serif",
+                  "label": "Impact",
+                  "group": "Sans-serif"
+                },
+                {
+                  "value": "'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Lucida, Helvetica, Arial, sans-serif",
+                  "label": "Lucida Grande",
+                  "group": "Sans-serif"
+                },
+                {
+                  "value": "Trebuchet MS, sans-serif",
+                  "label": "Trebuchet MS",
+                  "group": "Sans-serif"
+                },
+                {
+                  "value": "Verdana, Helvetica, Arial, sans-serif",
+                  "label": "Verdana",
+                  "group": "Sans-serif"
+                },
+                {
+                  "value": "Garamond, Baskerville, Caslon, serif",
+                  "label": "Garamond",
+                  "group": "Serif"
+                },
+                {
+                  "value": "Georgia, Utopia, 'Times New Roman', Times, serif",
+                  "label": "Georgia",
+                  "group": "Serif"
+                },
+                {
+                  "value": "Palatino, 'Palatino Linotype', 'Book Antiqua', serif",
+                  "label": "Palatino",
+                  "group": "Serif"
+                },
+                {
+                  "value": "'Times New Roman', Times, serif",
+                  "label": "Times New Roman",
+                  "group": "Serif"
+                },
+                {
+                  "value": "'Courier New', Courier, monospace",
+                  "label": "Courier New",
+                  "group": "Monospace"
+                },
+                {
+                  "value": "Monaco, 'Lucida Console', 'DejaVu Sans Mono', monospace",
+                  "label": "Monaco/Lucida Console",
+                  "group": "Monospace"
+                }
+              ]
+            },
+            {
+              "type": "select",
+              "id": "subheading_font_weight",
+              "label": "Peso",
+              "default": "400",
+              "options": [
+                {
+                  "value": "100",
+                  "label": "Thin 100"
+                },
+                {
+                  "value": "200",
+                  "label": "Thin 200"
+                },
+                {
+                  "value": "300",
+                  "label": "Light 300"
+                },
+                {
+                  "value": "400",
+                  "label": "Regular 400"
+                },
+                {
+                  "value": "500",
+                  "label": "Medium 500"
+                },
+                {
+                  "value": "600",
+                  "label": "Medium 600"
+                },
+                {
+                  "value": "700",
+                  "label": "Bold 700"
+                },
+                {
+                  "value": "800",
+                  "label": "Bold 800"
+                },
+                {
+                  "value": "900",
+                  "label": "ExtraBold 900"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "header": "Títulos slider",
           "settings": [
             {
@@ -1099,7 +1316,7 @@
               "type": "select",
               "id": "slide_heading_font_weight",
               "label": "Peso",
-              "default": "900",
+              "default": "800",
               "options": [
                 {
                   "value": "100",
