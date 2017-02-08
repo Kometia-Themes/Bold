@@ -53,21 +53,7 @@
           </thead>
           <tbody>
             {% for order in customer.orders %}
-            <tr class="pointer {% if order.cancelled %}cancelled_order{% endif %}" data-href="/cuenta/orden/{{ order.id }}">
-              <td><a href="/cuenta/orden/{{ order.id }}">{{ order.number }}</a></td>
-              <td>{{ order.created_at | datetime }}</td>
-              <td>{{ order.financial_status_label }}</td>
-              <td>{{ order.fulfillment_status_label }}</td>
-              <td>{{ order.total_price | money }}</td>
-            </tr>
-            <tr class="placed_order">
-              <td><a href="/cuenta/orden/{{ order.id }}">{{ order.number }}</a></td>
-              <td>{{ order.created_at | datetime }}</td>
-              <td>{{ order.financial_status_label }}</td>
-              <td>{{ order.fulfillment_status_label }}</td>
-              <td>{{ order.total_price | money }}</td>
-            </tr>
-            <tr class="placed_order">
+            <tr class="pointer js-clickable {% if order.cancelled %}cancelled_order{% else %}placed_order{% endif %}" data-href="/cuenta/orden/{{ order.id }}">
               <td><a href="/cuenta/orden/{{ order.id }}">{{ order.number }}</a></td>
               <td>{{ order.created_at | datetime }}</td>
               <td>{{ order.financial_status_label }}</td>
@@ -87,15 +73,4 @@
 
   </div> <!-- .content -->
 </div> <!-- .container-fluid -->
-{% endblock %}
-
-{% block body_js %}
-  {{ parent() }}
-  <script type="text/javascript">
-    $(function () {
-      $('.table > tbody > tr').on('click', function(e) {
-        window.location = $(this).data('href');
-      });
-    });
-  </script>
 {% endblock %}

@@ -221,6 +221,12 @@ $(document).ready(function() {
     console.log(horizontal);
   }
 
+  $(function () {
+    $('.table > tbody > tr.js-clickable').on('click', function(e) {
+      window.location = $(this).data('href');
+    });
+  });
+
   $(window).resize(function() {
     getProductHeight();
   });
