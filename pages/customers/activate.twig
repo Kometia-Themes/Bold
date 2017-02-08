@@ -3,13 +3,8 @@
 {% block body %}
 <div class="container-fluid customer">
   <div class="row">
-    <div class="col-xs-12 header">
-      {% if settings.heading_uppercase_titles %}
-      <h1 class="title page-title">{{ 'Activar cuenta' | upper }}</h1>
-      {% else %}
-      <h1 class="title page-title">Activar cuenta</h1>
-      {% endif %}
-      <p class="lead">{{ settings.cart_description }}</p>
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 header">
+      {% include '_titles.twig' with {title: 'Activar Cuenta', uppercase: settings.heading_uppercase_titles} only %}
       <hr class="spacer">
     </div>
   </div>

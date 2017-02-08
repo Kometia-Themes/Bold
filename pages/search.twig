@@ -2,43 +2,28 @@
 
 {% block body %}
 <div class="container-fluid search-section">
-
-
   <div class="row page-search">
-    <div class="col-xs-12 section-horizontal">
-      <div class="row header">
-        <div class="col-xs-12 search__description">
-          <div class="outer">
-            <div class="inner">
-            {% if results.products | length > 0 %}
-              {% if settings.heading_uppercase_titles %}
-              <h1 class="title page-title">{{ 'Término:' | upper }} {{ search | upper }}</h1>
-              {% else %}
-              <h1 class="title page-title">Término: <strong>{{ search }}</h1>
-              {% endif %}
-              <p class="search-text">Productos encontrados</p>
-              {% else %}
-              {% if settings.heading_uppercase_titles %}
-              <h1 class="title page-title">{{ 'Sin resultados' | upper }}</h1>
-              {% else %}
-              <h1 class="title page-title">Sin resultados</h1>
-              {% endif %}
-              <p class="search-text">Intenta otro término de búsqueda.</p>
-              {% endif %}
-            </div>
-          </div>
-        </div>
-      </div>
+  {% if results.products | length > 0 %}
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 header">
+      {% include '_titles.twig' with {title: 'Término: '~search, uppercase: settings.heading_uppercase_titles} only %}
+      <p class="search-text">Productos encontrados</p>
+      <hr class="spacer">
     </div>
+    {% else %}
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 header">
+      {% include '_titles.twig' with {title: 'Sin resultados', uppercase: settings.heading_uppercase_titles} only %}
+      <p class="search-text">Intenta otro término de búsqueda</p>
+      <hr class="spacer">
+    </div>
+    {% endif %}
   </div>
-
   {% if results.products | length > 0 %}
     <div class="row products__row">
       <div class="col-sm-12">
         <table class="table table-striped table-hover">
           <thead>
             <tr>
-              <th >Nombre</th>
+              <th>Nombre</th>
               <th class="hidden-xs"></th>
               <th class="text-right">Precio</th>
             </tr>

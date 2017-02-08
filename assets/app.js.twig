@@ -2,7 +2,7 @@ var timeOut;
 $("p:contains('<meta charset=\"utf-8\" \/>')").remove();
 
 $(document).ready(function() {
-  setTimeout( function(){ 
+  setTimeout( function(){
       $('.notification').addClass('animated');
    }, 200 );
 
@@ -21,12 +21,6 @@ $(document).ready(function() {
       }
   {% endif %}
 {% endif %}
-
-  $('.page-title').each(function(){
-      var newtitle = $(this);
-      newtitle.html( newtitle.text().replace(/(^[^\s]+ )/,'<span class="alternative">$1</span>') );
-  });
-
   $('.slider').slick({
     slidesToShow: 1,
     slidesToScroll: 1,

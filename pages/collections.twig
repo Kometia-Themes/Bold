@@ -6,11 +6,8 @@
 {% if collections | length > 0 %}
   <div class="row">
     <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 header">
-      {% if settings.heading_uppercase_titles %}
-      <h1 class="title page-title">{{ 'Colecciones' | upper }}</h1>
-      {% else %}
-      <h1 class="title page-title">Colecciones</h1>
-      {% endif %}
+      {% include '_titles.twig' with {title: 'Colecciones', uppercase: settings.heading_uppercase_titles} only %}
+      <p class="lead">{{ collection.description | striptags }}</p>
       <hr class="spacer">
     </div>
   </div>

@@ -3,12 +3,8 @@
 {% block body %}
 <div class="container-fluid customer">
   <div class="row">
-    <div class="col-xs-12 header">
-      {% if settings.heading_uppercase_titles %}
-      <h1 class="title page-title">{{ 'Orden' | upper }} <span>#{{ order.number }}</span></h1>
-      {% else %}
-      <h1 class="title page-title">Orden <span>#{{ order.number }}</span></h1>
-      {% endif %}
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 header">
+      {% include '_titles.twig' with {title: 'Orden'~'<span>#'~order.number~'</span>', uppercase: settings.heading_uppercase_titles} only %}
       <p class="lead">Referencia: {{ order.id }}</p>
       <hr class="spacer">
     </div>
@@ -62,7 +58,7 @@
                     <td class="text-center">{{ item.quantity }}</td>
                     <td class="text-right">{{ item.price | money('symbol', 'code') }}</td>
                   </tr>
-                {% endfor %} 
+                {% endfor %}
                 </tbody>
                 <tfoot>
                   <tr>

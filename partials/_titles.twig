@@ -1,0 +1,11 @@
+{% if uppercase %}
+  {% set title = title | upper %}
+{% endif %}
+{% set title = title | split(' ', 2) %}
+<h1 class="title page-title">
+  {% if title | length > 1 %}
+  <span class="alternative">{{ title[0] }}</span> {{ title[1] }}
+  {% else %}
+  {{ title[0] }}
+  {% endif %}
+</h1>
