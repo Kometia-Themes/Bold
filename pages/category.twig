@@ -14,12 +14,8 @@
 <div class="container-fluid category-page">
   {% if products.count > 0 %}
   <div class="row">
-    <div class="col-xs-12 header">
-      {% if settings.heading_uppercase_titles %}
-      <h1 class="title page-title">{{ category.title | upper }}</h1>
-      {% else %}
-      <h1 class="title page-title">{{ category.title | capitalize }}</h1>
-      {% endif %}
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 header">
+      {% include '_titles.twig' with {title: category.title, uppercase: settings.heading_uppercase_titles} only %}
       <ol class="breadcrumb">
      {% if category.parent is not empty %}
         <li class="category_parent"><strong>Categoría superior:</strong></li>
@@ -47,16 +43,10 @@
   {% endfor %}
 
 {% include '_pagination.twig' %}
-
 {% else %}
-
   <div class="row">
-    <div class="col-xs-12 header">
-      {% if settings.heading_uppercase_titles %}
-      <h1 class="title page-title">{{ category.title | upper }}</h1>
-      {% else %}
-      <h1 class="title page-title">{{ category.title | capitalize }}</h1>
-      {% endif %}
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 header">
+      {% include '_titles.twig' with {title: category.title, uppercase: settings.heading_uppercase_titles} only %}
       <ol class="breadcrumb">
      {% if category.parent is not empty %}
         <li class="category_parent"><strong>Categoría superior:</strong></li>

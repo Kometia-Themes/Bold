@@ -2,20 +2,10 @@
 
 {% block body %}
 <div class="container-fluid contact-page">
-  <div class="row header">
-    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 page__description">
-      <div class="outer">
-        <div class="inner">
-          {% if settings.heading_uppercase_titles %}
-          <h1 class="title page-title">{{ page.title | upper }}</h1>
-          {% else %}
-          <h1 class="title page-title">{{ page.title }}</h1>
-          {% endif %}
-          <hr class="spacer">
-        </div>
-      </div>
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 header">
+      {% include '_titles.twig' with {title: page.title, uppercase: settings.heading_uppercase_titles} only %}
+      <hr class="spacer">
     </div>
-  </div>
   <div class="row">
     <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
       {{ page.content }}
