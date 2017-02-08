@@ -1,8 +1,6 @@
 {% if settings.enable_product_image_zoom %}
 {{ '//cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.18/jquery.zoom.min.js' | script_tag }}
 {% endif %}
-{{ dump(settings.enable_product_image_zoom) }}
-
 <script type="text/javascript">
   {% if settings.enable_product_image_zoom %}
   function loadZoom() {

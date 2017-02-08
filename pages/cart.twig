@@ -4,11 +4,7 @@
 <div class="container-fluid cart">
   <div class="row">
     <div class="col-xs-12 header">
-      {% if settings.heading_uppercase_titles %}
-      <h1 class="title page-title">{{ settings.cart_title | upper }}</h1>
-      {% else %}
-      <h1 class="title page-title">{{ settings.cart_title }}</h1>
-      {% endif %}
+      {% include '_titles.twig' with {title: settings.cart_title, uppercase: settings.heading_uppercase_titles} only %}
       <p class="lead">{{ settings.cart_description }}</p>
       <hr class="spacer">
     </div>

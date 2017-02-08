@@ -4,11 +4,7 @@
 <div class="container-fluid customer">
   <div class="row">
     <div class="col-xs-12 header">
-      {% if settings.heading_uppercase_titles %}
-      <h1 class="title page-title">{{ 'Recuperar Contraseña' | upper }}</h1>
-      {% else %}
-      <h1 class="title page-title">Recuperar Contraseña</h1>
-      {% endif %}
+      {% include '_titles.twig' with {title: 'Recuperar Contraseña', uppercase: settings.heading_uppercase_titles} only %}
       <p class="lead">Por favor ingresa tu correo electrónico. Recibirás un link para cambiar tu contraseña.</p>
       <hr class="spacer">
     </div>

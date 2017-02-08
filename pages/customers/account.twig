@@ -4,11 +4,7 @@
 <div class="container-fluid customer">
   <div class="row">
     <div class="col-xs-12 header">
-      {% if settings.heading_uppercase_titles %}
-      <h1 class="title page-title">{{ 'Mi Cuenta' | upper }}</h1>
-      {% else %}
-      <h1 class="title page-title">Mi Cuenta</h1>
-      {% endif %}
+      {% include '_titles.twig' with {title: 'Mi Cuenta', uppercase: settings.heading_uppercase_titles} only %}
       <hr class="spacer">
     </div>
   </div>
@@ -57,7 +53,7 @@
           </thead>
           <tbody>
             {% for order in customer.orders %}
-            <tr class="{% if order.cancelled %}cancelled_order{% endif %}">
+            <tr class="pointer {% if order.cancelled %}cancelled_order{% endif %}" data-href="/cuenta/orden/{{ order.id }}">
               <td><a href="/cuenta/orden/{{ order.id }}">{{ order.number }}</a></td>
               <td>{{ order.created_at | datetime }}</td>
               <td>{{ order.financial_status_label }}</td>
@@ -91,4 +87,15 @@
 
   </div> <!-- .content -->
 </div> <!-- .container-fluid -->
+{% endblock %}
+
+{% block body_js %}
+  {{ parent() }}
+  <script type="text/javascript">
+    $(function () {
+      $('.table > tbody > tr').on('click', function(e) {
+        window.location = $(this).data('href');
+      });
+    });
+  </script>
 {% endblock %}
