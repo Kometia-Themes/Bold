@@ -48,9 +48,15 @@
             },
             {
               "type": "color",
+              "id": "sidebar_menu_text_color",
+              "label": "textos",
+              "default": "#ffffff"
+            },
+            {
+              "type": "color",
               "id": "sidebar_menu_links_color",
               "label": "Vínculos y textos",
-              "default": "#727272"
+              "default": "#ffffff"
             },
             {
               "type": "color",
@@ -138,7 +144,7 @@
               "type": "color",
               "id": "slider_nav_bg_color",
               "label": "Fondo de la navegación del slider",
-              "default": "#eeeeee"
+              "default": "#efefef"
             }
           ]
         },

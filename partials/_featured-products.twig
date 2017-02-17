@@ -48,7 +48,7 @@
                 <img width="276" class="slider-products__image" src="{{ image_url }}&w={{ width }}&h={{ height }}&fit=crop">
               </a>
               <p class="slider-products__compared-price">
-                {% if product.compared_price > 0 and product.compared_price is not empty %}
+                {% if product.compared_price > product.price %}
                 Antes: {{ product.compared_price | money('symbol', 'code') }}
                 {% endif %}
               </p>
