@@ -42,7 +42,7 @@
             {% for thumbnail in product.images %}
               {% if 'tagcolor-' not in thumbnail.original_filename %}
               <div class="slider-product__item">
-                <img class="slider-product--image" src="{{ thumbnail.url }}&w=160&h={{ thumb_height }}&fit=crop" width="{{ thumb_width }}" alt="{{ product.name }}">
+                <img class="slider-product--image" src="{{ thumbnail.url }}" width="{{ thumb_width }}" alt="{{ product.name }}">
               </div>
               {% endif %}
             {% endfor %}
@@ -52,11 +52,7 @@
 
       </div>
     </div>
-
     <div class="col-sm-12 col-md-5 product-options">
-
-
-
       <div class="row">
         <div class="col-xs-12">
           {% if settings.heading_uppercase_titles %}
@@ -94,7 +90,7 @@
                   {% for variant in attribute_variants %}
                     <input id="{{ product.sku.id }}_{{ variant }}_{{ loop.index0 }}" type="radio" name="{{ step }}" value="{{ variant }}" class="js-variant-select" {% if default_variant == variant %}checked="checked"{% endif %}><label style="background-image:url(
                     {% for thumbnail in product.images %}
-                      {% if 'tagcolor-'~variant in thumbnail.original_filename %}
+                      {% if 'tagcolor-'~variant | lower in thumbnail.original_filename | lower %}
                         {{ thumbnail.url }}&w=30&h=30
                       {% endif %}
                     {% endfor %}

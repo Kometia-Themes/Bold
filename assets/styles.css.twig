@@ -407,6 +407,7 @@ strong {color: {{ settings.main_link_color }};}
   width: 280px;
   overflow-y: auto;
   overflow-x: hidden;
+  color: {{ settings.sidebar_menu_text_color }};
   background: {{ settings.sidebar_menu_bg_gradient_color_one }};
   background: -moz-linear-gradient(top,  {{ settings.sidebar_menu_bg_gradient_color_one }} 0%, {{ settings.sidebar_menu_bg_gradient_color_two }} 100%);
   background: -webkit-linear-gradient(top,  {{ settings.sidebar_menu_bg_gradient_color_one }} 0%,{{ settings.sidebar_menu_bg_gradient_color_two }} 100%);
@@ -2709,7 +2710,7 @@ strong {color: {{ settings.main_link_color }};}
 .cart .content .table > tfoot > tr > th,
 .cart .content .table > thead > tr > td,
 .cart .content .table > thead > tr > th {
-  padding: 20px;
+  padding: 15px;
 }
 .cart .content .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child,
 .cart .content .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child,
@@ -2750,8 +2751,16 @@ strong {color: {{ settings.main_link_color }};}
 .cart .content .cart-totals .cart-totals__container {background-color: #f6f6f6; padding: 1.4em; display: inline-block;}
 .cart .content .cart-totals .cart-total-row__title {}
 .cart .content .cart-totals p {text-transform: uppercase; font-size: 1em;}
-.cart .content .go-payment__buy-more {text-align: right;}
+.cart .content .buttons-container {text-align: right;}
+.cart .content .go-payment__buy-more {display: inline-block; text-align: right;}
 .cart .content .go-payment__buy-more .btn {}
-.cart .content .go-payment__buy-now {}
+.cart .content .go-payment__buy-now {display: inline-block; text-align: right;}
 .cart .content .go-payment__buy-now .btn {}
+@media(max-width:767px) {
+  .cart .content .buttons-container {text-align: left;}
+  .cart .content .go-payment__buy-now {display:block; margin-bottom:1em;}
+  .cart .content .go-payment__buy-more {display:block; margin-bottom:1em;}
+  .cart .content .go-payment__buy-now .btn {width:100%;}
+  .cart .content .go-payment__buy-more .btn {width:100%;}
+}
 

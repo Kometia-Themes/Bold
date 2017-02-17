@@ -32,6 +32,7 @@
             {% for item in cart.items %}
             <tr>
               <td class="hidden-xs cart__resume-table__product-thumbnail" align="center">
+                <a href="/productos/{{ item.product.permalink }}">
                 {% if item.sku.image_url is not empty %}
                   <img class="img-responsive" src="{{ item.sku.image_url }}&w=100" width="100" alt="{{ item.product.name }}">
                 {% elseif item.product.image_url is not empty %}
@@ -39,12 +40,12 @@
                  {% else %}
                   <img class="img-responsive" src="{{ 'placeholders/product-11.jpg' | global_img_url }}" width="100" alt="{{ item.product.name }}">
                 {% endif %}
+                </a>
               </td>
               <td>
                 <a class="cart__resume-table__product-name" href="/productos/{{ item.product.permalink }}">
-                {{ item.product.name }}{% if item.product.modifiers.count > 1 %} - {{ item.sku.name }}{% endif %}
+                {{ item.product.name }}{% if item.product.modifiers.count > 0 %} - {{ item.sku.name }}{% endif %}
                 </a>
-                <p class="cart__resume-table__product-excert">{{ item.product.excerpt | raw }}</p>
               </td>
               <td>
                 <form action="/carrito/actualizar" method="post">
@@ -83,23 +84,24 @@
         </div>
       </div>
       <div class="col-xs-12">
-        <div class="pull-left go-payment__buy-more">
-          <a href="/productos" class="btn btn-primary text-uppercase">Comprar más {{ settings.cart_btn_more_text }}</a>
-        </div>
-        <div class="pull-right go-payment__buy-now">
-          <a href="/checkout" class="btn btn-primary text-uppercase">Proceder a comprar {{ settings.cart_btn_buy_text }}</a>
+        <div class="row">
+          <div class="col-xs-12 buttons-container">
+            <div class="go-payment__buy-more hidden-xs">
+              <a href="/productos" class="btn btn-primary text-uppercase">{{ settings.cart_btn_more_text }}</a>
+            </div>
+            <div class="go-payment__buy-now">
+              <a href="/checkout" class="btn btn-primary text-uppercase">{{ settings.cart_btn_buy_text }}</a>
+            </div>
+            <div class="go-payment__buy-more visible-xs">
+              <a href="/productos" class="btn btn-primary text-uppercase">{{ settings.cart_btn_more_text }}</a>
+            </div>
+          </div>
         </div>
       </div>
-
 
     </div> <!-- .content -->
 
   {% endif %}
-
-
-
-
-
 
 </div> <!-- .container-fluid -->
 {% endblock %}
