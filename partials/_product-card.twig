@@ -6,7 +6,7 @@
   {% set style = 'img-placeholder' %}
 {% endif %}
 <div class="product-card">
-  {% if product.compared_price > 0 and product.compared_price is not null  %}
+  {% if product.compared_price > product.price %}
   <div class="ribbon"><span class="warning">{{ settings.product_ribbon_text }}</span></div>
   {% endif %}
   <div class="product-card__image-container">
@@ -24,7 +24,7 @@
     </a>
   </div>
   <div class="product-card__description">
-    {% if product.compared_price > 0 and product.compared_price is not null  %}
+    {% if product.compared_price > product.price %}
     <p class="product-card__discount">{{ settings.product_compared_text }} <span class="product-card--compared-price">{{ product.compared_price | money('symbol', 'code') }}</span></p>
     {% endif %}
     <h2 class="product-card__title">
