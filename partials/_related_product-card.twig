@@ -6,7 +6,7 @@
   {% set style = 'img-placeholder' %}
 {% endif %}
 <div class="product-card">
-  {% if related_product.compared_price > 0 and related_product.compared_price is not null  %}
+  {% if related_product.compared_price > related_product.price  %}
   <div class="ribbon"><span class="warning">{{ settings.product_ribbon_text }}</span></div>
   {% endif %}
   <div class="product-card__image-container">
