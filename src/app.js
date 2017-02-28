@@ -1,17 +1,30 @@
+'use strict';
+import $ from 'jquery';
+import 'slick-carousel';
+
+// incluye un elemento del source
+var css = require('./assets/styles.scss');
+// require('font-awesome/css/font-awesome.css');
+// importa un elemento de node modules
+// import 'bootstrap-sass/assets/javascripts/bootstrap.js';
+// Resto del Js
 var timeOut;
+var newsletter_modal = '{{ settings.newsletter_modal }}';
+var newsletter_modal_development = '{{ settings.newsletter_modal_development }}';
+
 $("p:contains('<meta charset=\"utf-8\" \/>')").remove();
 
 $(document).ready(function() {
-  setTimeout( function(){
+  setTimeout( function(){ 
       $('.notification').addClass('animated');
    }, 200 );
 
-{% if settings.newsletter_modal %}
-  {% if settings.newsletter_modal_development %}
+if (newsletter_modal) {
+  if (newsletter_modal_development) {
     setTimeout(function() {
         $('#newsletterModal').modal('show');
       }, 2000);
-  {% else %}
+  } else {
     var alreadyVisited = localStorage['visited'];
       if (!alreadyVisited) {
       setTimeout(function() {
@@ -19,8 +32,14 @@ $(document).ready(function() {
         }, 3000);
         localStorage['visited'] = true;
       }
-  {% endif %}
-{% endif %}
+  }
+}
+
+  $('.page-title').each(function(){
+      var newtitle = $(this);
+      newtitle.html( newtitle.text().replace(/(^[^\s]+ )/,'<span class="alternative">$1</span>') );
+  });
+
   $('.slider').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -218,14 +237,7 @@ $(document).ready(function() {
     $(horizontal).css({ "height": horizontal.width() * .62 });
     $(vertical).css({ "height": vertical.width() * 1.62 });
     $(square).css({ "height": square.width() });
-    console.log(horizontal);
   }
-
-  $(function () {
-    $('.table > tbody > tr.js-clickable').on('click', function(e) {
-      window.location = $(this).data('href');
-    });
-  });
 
   $(window).resize(function() {
     getProductHeight();

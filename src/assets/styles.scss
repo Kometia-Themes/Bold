@@ -1,0 +1,12 @@
+@import 'settings';
+
+$body_bg_color: "{{ settings.background_color }}";
+
+body {
+  font-size: 16px;
+  background-color: $body_bg_color;
+  color: pink;
+}
+.mydiv {
+  background-color: $body_bg_color;
+}
