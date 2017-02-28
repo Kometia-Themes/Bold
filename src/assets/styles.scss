@@ -1,0 +1,26 @@
+body {
+  font-size: 16px;
+  background-color: "{{ settings.brand_main_color }}";
+  color: pink; }
+
+.mydiv {
+  background-color: "{{ settings.brand_main_color }}"; }
+
+h1 {
+  color: green; }
+p {
+  color: "{{ settings.body_background_color }}";
+}
+div {
+  border: 1px solid gray;
+}
+.hello {
+  background-color: pink;
+}
+.finish {
+  color: red;
+  border: 1px;
+}
+.complete {
+  color: "{{ settings.body_background_color }}";
+}

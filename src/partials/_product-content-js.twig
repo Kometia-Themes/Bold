@@ -2,14 +2,15 @@
 {{ '//cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.18/jquery.zoom.min.js' | script_tag }}
 {% endif %}
 <script type="text/javascript">
-  {% if settings.enable_product_image_zoom %}
-  function loadZoom() {
-    $('#zoom').wrap('<span style="display:inline-block"></span>')
-      .css('display', 'block')
-      .parent()
-      .zoom();
+  var enable_product_image_zoom = '{{ settings.enable_product_image_zoom }}';
+  if (enable_product_image_zoom) {
+    function loadZoom() {
+      $('#zoom').wrap('<span style="display:inline-block"></span>')
+        .css('display', 'block')
+        .parent()
+        .zoom();
     }
-  {% endif %}
+  }
 
   $(document).ready(function () {
     $('.slider-product').show();
@@ -25,9 +26,9 @@
       vertical: true
     });
 
-    {% if settings.enable_product_image_zoom %}
-    loadZoom();
-    {% endif %}
+    if (enable_product_image_zoom) {
+      loadZoom();
+    }
 
     $('.product .slick-slide').on('click', function(e) {
       mainProduct = $(this).find('img').attr('src');
@@ -55,6 +56,7 @@
 
   $(document).ready(function () {
     var firstLoad = true;
+    var enable_product_image_zoom = '{{ settings.enable_product_image_zoom }}';
 
     new Shoperti.SkuSelect({
       selector: 'js-variant-select',
@@ -81,19 +83,19 @@
       if (sku) {
         var image = sku.image_url;
         if (!firstLoad) {
-          {% if settings.enable_product_image_zoom %}
+          if (enable_product_image_zoom) {
+            var zoom = $('#zoom');
+            if (image && $('.zoomImg').attr('src') != image) {
+              zoom.trigger('zoom.destroy');
+              zoom.attr("src", image);
+              loadZoom();
+            }
+          } else {
           var zoom = $('#zoom');
-          if (image && $('.zoomImg').attr('src') != image) {
-            zoom.trigger('zoom.destroy');
-            zoom.attr("src", image);
-            loadZoom();
+            if (image && zoom.attr('src') != image) {
+              zoom.attr("src", image);
+            }
           }
-          {% else %}
-          var zoom = $('#zoom');
-          if (image && zoom.attr('src') != image) {
-            zoom.attr("src", image);
-          }
-          {% endif %}
         }
         firstLoad = false;
       }
