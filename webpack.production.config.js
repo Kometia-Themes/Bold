@@ -1,20 +1,20 @@
 'use strict';
 
-var webpack = require('webpack');
-var path = require('path');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StringReplacerPlugin = require('webpack-string-replacer-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ZipPlugin = require('zip-webpack-plugin');
-var webpackUglifyJsPlugin = require('webpack-uglify-js-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ZipPlugin = require('zip-webpack-plugin');
+const webpackUglifyJsPlugin = require('webpack-uglify-js-plugin');
 
 module.exports = {
   entry: {
     app: './src/app.js',
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'assets/[name].js',
   },
   module: {
@@ -43,28 +43,29 @@ module.exports = {
       $: "jquery",
       jQuery: "jquery"
     }),
-    new webpackUglifyJsPlugin({
-      cacheFolder: path.resolve(__dirname, 'cache/'),
-      debug: false,
-      minimize: false,
-      sourceMap: false,
-      output: {
-        comments: false
-      },
-      compressor: {
-        warnings: false
-      }
-    }),
-    new ExtractTextPlugin('assets/styles.css.twig'),
+    // new webpackUglifyJsPlugin({
+    //   cacheFolder: path.resolve(__dirname, 'cache/'),
+    //   debug: true,
+    //   minimize: false,
+    //   sourceMap: true,
+    //   output: {
+    //     comments: false
+    //   },
+    //   compressor: {
+    //     warnings: false
+    //   }
+    // }),
+
+    new ExtractTextPlugin({filename: 'assets/styles.css.twig'}),
     new StringReplacerPlugin({
       assets: ['styles.css.twig'],
-      replaceValue: "\"{{",
-      newValue: "{{"
+      replaceValue: '"{{',
+      newValue: '{{'
     }),
     new StringReplacerPlugin({
       assets: ['styles.css.twig'],
-      replaceValue: "}}\"",
-      newValue: "}}"
+      replaceValue: '}}"',
+      newValue: '}}'
     }),
     new CopyWebpackPlugin([
       { from: './dist/assets/app.js', to: 'assets/app.js.twig' },

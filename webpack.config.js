@@ -11,7 +11,7 @@ module.exports = {
     app: './src/app.js'
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'assets/[name].js',
   },
   module: {
@@ -44,7 +44,7 @@ module.exports = {
       cacheFolder: path.resolve(__dirname, 'cache/'),
       debug: false,
       minimize: false,
-      sourceMap: false,
+      sourceMap: true,
       output: {
         comments: false
       },

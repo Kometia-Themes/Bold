@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack -d --watch --progress --colors --display-error-details",
-    "prod": "webpack -d && webpack -p --config ./webpack.production.config.js && rm -rf dist/config dist/layouts dist/pages && rm -rf dist/config dist/layouts dist/screenshots dist/partials dist/assets dist/*.png dist/*.jpg dist/README.md dist/.gitignore dist/.editorconfig",
+    "prod": "webpack -d && webpack -d --config ./webpack.production.config.js && rm -rf dist/config dist/layouts dist/pages && rm -rf dist/config dist/layouts dist/screenshots dist/partials dist/assets dist/*.png dist/*.jpg dist/README.md dist/.gitignore dist/.editorconfig",
     "serve": "webpack-dev-server --progress --colors"
   },
   "keywords": [
