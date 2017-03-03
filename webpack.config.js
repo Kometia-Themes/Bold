@@ -40,18 +40,18 @@ module.exports = {
       $: "jquery",
       jQuery: "jquery"
     }),
-    new webpackUglifyJsPlugin({
-      cacheFolder: path.resolve(__dirname, 'cache/'),
-      debug: false,
-      minimize: false,
-      sourceMap: true,
-      output: {
-        comments: false
-      },
-      compressor: {
-        warnings: false
-      }
-    }),
+    // new webpackUglifyJsPlugin({
+    //   cacheFolder: path.resolve(__dirname, 'cache/'),
+    //   debug: false,
+    //   minimize: false,
+    //   sourceMap: true,
+    //   output: {
+    //     comments: false
+    //   },
+    //   compressor: {
+    //     warnings: false
+    //   }
+    // }),
     new ExtractTextPlugin('assets/styles.css.twig')
   ]
 }
