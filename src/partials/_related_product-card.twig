@@ -1,0 +1,38 @@
+{% if related_product.image_url is not null %}
+  {% set image_url = related_product.image_url %}
+  {% set style = '' %}
+{% else %}
+  {% set image_url = 'placeholders/product-11.jpg' | global_img_url %}
+  {% set style = 'img-placeholder' %}
+{% endif %}
+<div class="product-card">
+  {% if related_product.compared_price > related_product.price %}
+  <div class="ribbon"><span class="warning">{{ settings.product_ribbon_text }}</span></div>
+  {% endif %}
+  <div class="product-card__image-container">
+    <div class="view-buttom">
+    {% if related_product.sku.permalink == 'default' and settings.btn_product_buy_in_list %}
+      <a data-skuid="{{ related_product.sku.id }}" class="btn view-buttom__link add-ajax-product-btn">{{ settings.btn_product_buy_now_text }}</a>
+    {% endif %}
+      <a href="/productos/{{ related_product.permalink }}{% if related_product.sku.permalink != 'default' %}/{{ related_product.sku.permalink }}{% endif %}" class="view-buttom__link">{{ settings.product_view_text }}</a>
+    </div>
+    <a href="/productos/{{ related_product.permalink }}{% if related_product.sku.permalink != 'default' %}/{{ related_product.sku.permalink }}{% endif %}" class="clearfix product-card__image-link">
+      {% if related_product.images | length > 1 %}
+        {% for thumbnail in related_product.images [:2] %}
+        <img class="product-card__image preview-{{ loop.index }}" src="{{ thumbnail.url }}&w={{ width }}&h={{ height }}&fit=crop" width="{{ width }}" alt="{{ related_product.name }}">
+        {% endfor %}
+      {% else %}
+        <img class="product-card__image preview-1" src="{{ image_url }}&w={{ width }}&h={{ height }}&fit=crop" width="{{ width }}" alt="{{ related_product.name }}">
+      {% endif %}
+    </a>
+  </div>
+  <div class="product-card__description">
+    {% if related_product.compared_price > related_product.price %}
+    <p class="product-card__discount">{{ settings.product_compared_text }} <span class="product-card--compared-price">{{ related_product.compared_price | money('symbol', 'code') }}</span></p>
+    {% endif %}
+    <h2 class="product-card__title">
+      <a href="/productos/{{ related_product.permalink }}{% if related_product.sku.permalink != 'default' %}/{{ related_product.sku.permalink }}{% endif %}" class="product-card__title-link">{{ related_product.name }}</a>
+    </h2>
+    <p class="product-card--price">{{ related_product.price | money('symbol', 'code') }}</p>
+  </div>
+</div>

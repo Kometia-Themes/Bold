@@ -1,0 +1,194 @@
+{% set thumb_width = '167' %}
+{% set width = '1200' %}
+
+{% if settings.thumbnail_form == 'thumbnail_portrait' %}
+  {% set thumb_height = '260' %}
+  {% set height = '1458' %}
+{% elseif settings.thumbnail_form == 'thumbnail_landscape' %}
+  {% set thumb_height = '100' %}
+  {% set height = '558' %}
+{% elseif settings.thumbnail_form == 'thumbnail_square' %}
+  {% set thumb_height = '167' %}
+  {% set height = '1200' %}
+{% endif %}
+{% set maxqty = settings.max_cart_items %}
+<div class="container-fluid product-page">
+  <div class="row product">
+    <div class="col-sm-12 col-md-7">
+      <div class="row">
+        {% if product.images | length == 0 %}
+        <div class="col-sm-12">
+          <div class="main-product">
+            <img src="{{ 'placeholders/product-15.jpg' | global_img_url }}" alt="{{ product.name }}" id="zoom">
+          </div>
+        </div>
+        {% elseif product.images | length == 1 %}
+        <div class="col-xs-12">
+          <div class="main-product">
+          {% if settings.enable_product_image_zoom %}
+            <div class="fireZoomEvent"><span>{{ settings.product_image_zoom_in_text }}</span></div>
+          {% endif %}
+            <img class="main-product__main-image" src="{{ product.image_url }}&w=1200&h=1200&fit=bounds" width="1200" alt="{{ product.name }}" id="zoom">
+          </div>
+        </div>
+        {% else %}
+        <div class="col-sm-12 col-md-10 col-md-push-2 col-lg-9 col-lg-push-3">
+          <div class="main-product">
+          {% if settings.enable_product_image_zoom %}
+            <div class="fireZoomEvent"><span>{{ settings.product_image_zoom_in_text }}</span></div>
+          {% endif %}
+            <img class="main-product__main-image" src="{{ product.image_url }}&w=1200&h=1200&fit=bounds" width="1200" alt="{{ product.name }}" id="zoom">
+          </div>
+        </div>
+        {% endif %}
+
+        {% if product.images | length > 1 %}
+        <div class="col-sm-12 col-md-2 col-md-pull-10 col-lg-3 col-lg-pull-9 nav-slider">
+          <div class="slider-product js-slider">
+            {% for thumbnail in product.images %}
+              {% if 'tagcolor-' not in thumbnail.original_filename | lower %}
+              <div class="slider-product__item">
+                <img class="slider-product--image" src="{{ thumbnail.url }}&w=167&h=167&fit=crop" width="{{ thumb_width }}" alt="{{ product.name }}">
+              </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-5 product-options">
+      <div class="row">
+        <div class="col-xs-12">
+          <ol class="breadcrumb hidden-xs hidden-sm">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/productos">Productos</a></li>
+            <li class="active">{{ product.name }}</li>
+          </ol>
+          {% if settings.heading_uppercase_titles %}
+          <h1 class="title page-title product-single__name">{{ product.name | upper }}</h1>
+          {% else %}
+          <h1 class="title page-title product-single__name">{{ product.name }}</h1>
+          {% endif %}
+          <hr class="spacer visible-xs visible-sm">
+          {% if product.vendor.name is not null %}
+           <p class="vendor">Marca: <strong>{{ product.vendor.name | title }}</strong></p>
+          {% endif %}
+          {% if settings.show_sku_code and product.sku.code is not empty %}
+          <p id="js-sku-id" class="sku">SKU: <strong>{{ product.sku.code }}</strong></p>
+          {% endif %}
+          {% if not product.is_in_stock %}<span class="label label-danger">Agotado</span>{% endif %}
+        </div>
+        <div class="col-xs-12">
+          <div class="product-single__price" id="js-price-preview">
+            <del class="price-preview__compared-price"><span class="inner">{{ product.compared_price is defined ? product.compared_price | money('symbol', 'code') : '' }}</span></del><br>
+            <span class="product-price-data-price price-preview__price">{{ product.price | money('symbol', 'code') }}</span>
+          </div>
+        </div>
+        <div class="product-price-data">
+          <form class="product_selection" action="/carrito/agregar" method="post">
+            <input type="hidden" name="sku_id" value="{{ product.sku.id }}" id="js-sku-new">
+            <div class="col-xs-12">
+            {% if product.skus_modifiers | length > 0 %}
+              {% for attribute, attribute_variants in product.skus_modifiers %}
+                {% if settings.product_tagcolor and attribute | lower == 'color' %}
+                <p class="product-features hide-product-{{ index }}">{{ attribute | title }}</p>
+                <div class="form-group product-page__tagcolor hide-product-{{ index }}">
+                  {% set step = loop.index - 1 %}
+                  {% set default_variant = product.sku.modifiers[step] %}
+
+                  {% for variant in attribute_variants %}
+                    <input id="{{ product.sku.id }}_{{ variant }}_{{ loop.index0 }}" type="radio" name="{{ step }}" value="{{ variant }}" class="js-variant-select" {% if default_variant == variant %}checked="checked"{% endif %}><label style="background-image:url(
+                    {% for thumbnail in product.images %}
+                      {% if 'tagcolor-'~variant | lower in thumbnail.original_filename | lower %}
+                        {{ thumbnail.url }}&w=30&h=30
+                      {% endif %}
+                    {% endfor %}
+                    );" for="{{ product.sku.id }}_{{ variant }}_{{ loop.index0 }}"><span></span></label>
+                  {% endfor %}
+                </div>
+                {% else %}
+                <p class="product-features hide-product-{{ index }}">{{ attribute | title }}</p>
+                <div class="form-group hide-product-{{ index }}">
+                  {% set step = loop.index - 1 %}
+                  {% set default_variant = product.sku.modifiers[step] %}
+                  {% for variant in attribute_variants %}
+                  <label for="{{ product.sku.id }}_{{ variant }}_{{ loop.index0 }}"><input id="{{ product.sku.id }}_{{ variant }}_{{ loop.index0 }}" type="radio" name="{{ step }}" value="{{ variant }}" class="js-variant-select" {% if default_variant == variant %}checked="checked"{% endif %}> {{ variant | title }}</label>
+                  {% endfor %}
+                </div>
+                {% endif %}
+
+              {% endfor %}
+            {% endif %}
+            </div>
+            <div class="col-xs-12 col-md-10">
+              <div class="product__vars">
+                {% include '_productCounterButtons.twig' %}
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-10">
+              {% if product.is_in_stock %}
+              <a class="btn js-add-to-cart" id="js-add-to-cart">
+                <i class="fa fa-cart-plus"></i>
+                Añadir al carrito
+              </a>
+              {% else %}
+              <a class="btn js-add-to-cart-disabled" disabled="disabled">
+                No disponible
+              </a>
+              {% endif %}
+            </div>
+          {% if settings.enable_share_products %}
+          <div class="col-xs-12">
+            <div class="product__social-share margin-top">
+              {% include '_social-share.twig' %}
+            </div>
+          </div>
+          {% endif %}
+          {% if product.description is not empty %}
+            <div class="col-xs-12 col-md-10 product__description">
+              <hr class="spacer light">
+              <p>{{ product.description }}</p>
+            </div>
+          {% endif %}
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% if settings.related_products and product.related_by_tags | length > 0 %}
+  <div class="related_products">
+    <div class="row">
+      <div class="col-xs-12 col-md-10 col-md-offset-1 header">
+        {% if settings.heading_uppercase_titles %}
+        <h3 class="title">{{ 'Productos relacionados' | upper }}</h3>
+        {% else %}
+        <h3 class="title">Productos relacionados</h3>
+        {% endif %}
+        <hr class="spacer">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+      {% for related_row in product.related_by_tags | batch(4) %}
+        {% if loop.index == 1 %}
+        <div class="row products_row">
+          {% for related_product in related_row %}
+          <div class="col-xs-6 col-sm-6 col-md-3">
+            {% include '_related_product-card.twig' with {'width': width, 'height': height} %}
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+</div>
+<div class=" cache hidden">
+  {% for image in product.images %}
+  <img src="{{ image.url }}&w=1200&h=1200&fit=bounds">
+  {% endfor %}
+</div>
