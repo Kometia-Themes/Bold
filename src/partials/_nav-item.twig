@@ -1,0 +1,15 @@
+{% if link.children | length > 0 %}
+<li class="has-children">
+  <a href="{{ link.url }}" class="sub__link">{{ link.name }}</a>
+  <a href="{{ link.url }}" class="sidebar-nav__more submenu-toggle"><i class="mdi mdi-chevron-down"></i></a>
+  <ul class="sidebar-subnav">
+    {% for children in link.children %}
+      {% include '_nav-item.twig' with {'link': children } %}
+    {% endfor %}
+  </ul>
+</li>
+{% else %}
+<li>
+  <a href="{{ link.url }}" class="simple__link">{{ link.name }}</a>
+</li>
+{% endif %}

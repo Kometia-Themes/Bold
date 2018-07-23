@@ -1,0 +1,82 @@
+{% if settings.featured_products_collection is not empty
+  and collections[settings.featured_products_collection] is defined
+  and collections[settings.featured_products_collection].is_visible %}
+  {% set featured_products = collections[settings.featured_products_collection].products %}
+{% endif %}
+{% if (settings.featured_products_limit > 0 or settings.featured_products_limit is empty) and featured_products is not empty %}
+  {% if settings.featured_products_collection is not empty and featured_products | length > 0 %}
+    {% set limit = settings.featured_products_limit is not empty ? min(0+settings.featured_products_limit, 50) : 50 %}
+    <div class="container-fluid featured-products-slider-home">
+      <div class="row">
+        <div class="collection-product col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="outer">
+            <div class="inner">
+              {% if settings.heading_uppercase_titles %}
+              <h2 class="collection-product__title">{{ collections[settings.featured_products_collection].title | upper }}</h2>
+              {% else %}
+              <h2 class="collection-product__title">{{ collections[settings.featured_products_collection].title }}</h2>
+              {% endif %}
+              <hr class="spacer" />
+              <p class="collection-product__description">{{ settings.featured_products_collection_description }}</p>
+              <p><a class="btn btn-lg collection-product__link" href="/colecciones/{{ collections[settings.featured_products_collection].permalink }}">Ver colección</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="slider-products col-xs-12 col-sm-6 col-md-8 col-lg-9">
+          <div class="products">
+          {% if settings.thumbnail_form == 'thumbnail_portrait' %}
+            {% set width = '276' %}
+            {% set height = '447' %}
+          {% elseif settings.thumbnail_form == 'thumbnail_landscape' %}
+            {% set width = '276' %}
+            {% set height = '170' %}
+          {% elseif settings.thumbnail_form == 'thumbnail_square' %}
+            {% set width = '276' %}
+            {% set height = '276' %}
+          {% else %}
+            {% set width = '276' %}
+            {% set height = '447' %}
+          {% endif %}
+          {% for product in featured_products | slice(0, limit) %}
+            {% if product.image_url is not null %}
+              {% set image_url = product.image_url %}
+            {% else %}
+              {% set image_url = 'placeholders/product-11.jpg' | global_img_url %}
+            {% endif %}
+            <div class="slider-products__product">
+              <a class="slider-products__link" href="/productos/{{ product.permalink }}{% if product.sku.permalink != 'default' %}/{{ product.sku.permalink }}{% endif %}">
+                <img width="276" class="slider-products__image" src="{{ image_url }}&w={{ width }}&h={{ height }}&fit=crop">
+              </a>
+              {% if product.compared_price > product.price %}
+              <p class="slider-products__compared-price">
+                Antes: {{ product.compared_price | money('symbol', 'code') }}
+              </p>
+              {% endif %}
+              <h3 class="slider-products__title">
+                <a class="slider-products__title-link" href="/productos/{{ product.permalink }}{% if product.sku.permalink != 'default' %}/{{ product.sku.permalink }}{% endif %}">{{ product.name }}</a>
+              </h3>
+              <p class="slider-products__price">{{ product.price | money('symbol', 'code') }}</p>
+            </div>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% else %}
+  {% set image_url = 'placeholders/product-11.jpg' | global_img_url %}
+  <div class="container-fluid featured-products-slider-placeholder">
+    <div class="row placeholder">
+      <div class="col-xs-12">
+        <div class="main-product__content image-container img-placeholder" style="background-image: url('{{ image_url }}')">
+        </div>
+      </div>
+      <div class="col-xs-12 main-product__description">
+        <h3 class="main-product__subtitle">¡Falta poco!</h3>
+        <p>Esta sección mostrará tus productos destacados. Para definirlos dirígete al área de configuración del tema y asigna la colección que los contiene.</p>
+        <a class="btn btn-primary" href="/admin/collections" class="btn btn-placeholder">Gestionar colecciones</a>
+        <a class="btn btn-primary" href="/admin/themes" class="btn btn-placeholder">Ir a sección de temas</a>
+      </div>
+    </div>
+  </div>
+{% endif %}

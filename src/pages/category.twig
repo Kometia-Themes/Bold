@@ -1,0 +1,73 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+  {% if settings.thumbnail_form == 'thumbnail_portrait' %}
+    {% set width = '380' %}
+    {% set height = '616' %}
+  {% elseif settings.thumbnail_form == 'thumbnail_landscape' %}
+    {% set width = '380' %}
+    {% set height = '235' %}
+  {% elseif settings.thumbnail_form == 'thumbnail_square' %}
+    {% set width = '380' %}
+    {% set height = '380' %}
+  {% endif %}
+<div class="container-fluid category-page">
+  {% if products.count > 0 %}
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 header">
+      {% include '_titles.twig' with {title: category.title, uppercase: settings.heading_uppercase_titles} only %}
+      <ol class="breadcrumb">
+     {% if category.parent is not empty %}
+        <li class="category_parent"><strong>Categoría superior:</strong></li>
+        <li class="category_link"><a href="{{ category.parent.permalink }}">{{ category.parent.title }}</a></li>
+      {% endif %}
+     {% if category.children | length > 0 %}
+        <li class="category_parent"><strong>Subcategorías:</strong> </li>
+      {% for sub_category in category.children %}
+        <li class="category_link"><a href="{{ sub_category.permalink }}">{{ sub_category.title }}</a></li>
+      {% endfor %}
+      {% endif %}
+      </ol>
+      <hr class="spacer">
+    </div>
+  </div>
+  <div class="row products_row symmetrical-container">
+    {% for product in products %}
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 symmetrical">
+      {% include '_product-card.twig' with {'width': width, 'height': height} %}
+    </div>
+    {% endfor %}
+  </div>
+
+{% include '_pagination.twig' %}
+{% else %}
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 header">
+      {% include '_titles.twig' with {title: category.title, uppercase: settings.heading_uppercase_titles} only %}
+      <ol class="breadcrumb">
+     {% if category.parent is not empty %}
+        <li class="category_parent"><strong>Categoría superior:</strong></li>
+        <li class="category_link"><a href="{{ category.parent.permalink }}">{{ category.parent.title }}</a></li>
+      {% endif %}
+     {% if category.children | length > 0 %}
+        <li class="category_parent"><strong>Subcategorías:</strong> </li>
+      {% for sub_category in category.children %}
+        <li class="category_link"><a href="{{ sub_category.permalink }}">{{ sub_category.title }}</a></li>
+      {% endfor %}
+      {% endif %}
+      </ol>
+      <hr class="spacer">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="row">
+        <div class="col-xs-12 placeholder">
+          <p class="products-text">Todavía no existen productos en esta categoría, una vez que empieces a crearlos aparecerán aquí.</p>
+        </div>
+      </div>
+    </div>
+  </div> <!-- .page-products -->
+{% endif %}
+</div> <!-- .container-fluid -->
+{% endblock %}
