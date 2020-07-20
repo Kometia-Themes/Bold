@@ -3,7 +3,7 @@
     "logo": "screenshot.png",
     "header": "Bold Theme",
     "content": [
-      "Tema 'Bold' de Shoperti. Por favor contáctanos por cualquier problema con este tema a [contacto](mailto:themes-support@shoperti.com)."
+      "Tema 'Bold' de Kometia. Por favor contáctanos por cualquier problema con este tema a [contacto](mailto:themes-support@kometia.com)."
     ]
   },
   "categories": [
@@ -18,14 +18,12 @@
               "type": "color",
               "id": "brand_main_color",
               "label": "Color destacado",
-              "default": "#ff7e11",
               "info": "Usualmente es el color principal de la marca."
             },
             {
               "type": "color",
               "id": "body_background_color",
-              "label": "Fondo de la página",
-              "default": "#ffffff"
+              "label": "Fondo de la página"
             }
           ]
         },
@@ -36,33 +34,28 @@
               "type": "color",
               "id": "sidebar_menu_bg_gradient_color_one",
               "label": "Degradado inicial",
-              "default": "#ff7e11",
               "info": "Si quieres un color sólido usa el mismo color del degradado final."
             },
             {
               "type": "color",
               "id": "sidebar_menu_bg_gradient_color_two",
               "label": "Degradado final",
-              "default": "#ee1919",
               "info": "Si quieres un color sólido usa el mismo color del degradado inicial."
             },
             {
               "type": "color",
               "id": "sidebar_menu_text_color",
-              "label": "textos",
-              "default": "#ffffff"
+              "label": "textos"
             },
             {
               "type": "color",
               "id": "sidebar_menu_links_color",
-              "label": "Vínculos y textos",
-              "default": "#ffffff"
+              "label": "Vínculos y textos"
             },
             {
               "type": "color",
               "id": "sidebar_menu_links_color_hover",
-              "label": "Sobre vínculos",
-              "default": "#417f94"
+              "label": "Sobre vínculos"
             }
           ]
         },
@@ -72,33 +65,28 @@
             {
               "type": "color",
               "id": "headings_color",
-              "label": "Títulos",
-              "default": "#000000"
+              "label": "Títulos"
             },
             {
               "type": "color",
               "id": "headings_second_color",
               "label": "Títulos alternativos",
-              "default": "#999999",
               "info": "Algunos títulos largos llevan la primera palabra en este color"
             },
             {
               "type": "color",
               "id": "body_font_color",
-              "label": "Contenidos",
-              "default": "#515151"
+              "label": "Contenidos"
             },
             {
               "type": "color",
               "id": "main_link_color",
-              "label": "Vínculos",
-              "default": "#43547e"
+              "label": "Vínculos"
             },
             {
               "type": "color",
               "id": "main_link_color_hover",
-              "label": "Sobre vínculos",
-              "default": "#417f94"
+              "label": "Sobre vínculos"
             }
           ]
         },
@@ -108,26 +96,22 @@
             {
               "type": "color",
               "id": "btn_text_color",
-              "label": "Texto",
-              "default": "#ffffff"
+              "label": "Texto"
             },
             {
               "type": "color",
               "id": "btn_bg_color",
-              "label": "Fondo",
-              "default": "#43547e"
+              "label": "Fondo"
             },
             {
               "type": "color",
               "id": "btn_text_color_hover",
-              "label": "Texto con mouse encima",
-              "default": "#ffffff"
+              "label": "Texto con mouse encima"
             },
             {
               "type": "color",
               "id": "btn_bg_color_hover",
-              "label": "Fondo con mouse encima",
-              "default": "#417f94"
+              "label": "Fondo con mouse encima"
             }
           ]
         },
@@ -137,14 +121,12 @@
             {
               "type": "color",
               "id": "slide_bg_color",
-              "label": "Fondo del slider",
-              "default": "#eeeeee"
+              "label": "Fondo del slider"
             },
             {
               "type": "color",
               "id": "slider_nav_bg_color",
-              "label": "Fondo de la navegación del slider",
-              "default": "#efefef"
+              "label": "Fondo de la navegación del slider"
             }
           ]
         },
@@ -154,50 +136,42 @@
             {
               "type": "color",
               "id": "slide_1_title_color",
-              "label": "Título",
-              "default": "#FFFFFF"
+              "label": "Título"
             },
             {
               "type": "color",
               "id": "slide_1_description_color",
-              "label": "Descripción",
-              "default": "#FFFFFF"
+              "label": "Descripción"
             },
             {
               "type": "color",
               "id": "slide_1_btn_text_color",
-              "label": "Texto del botón",
-              "default": "#ffffff"
+              "label": "Texto del botón"
             },
             {
               "type": "color",
               "id": "slide_1_btn_bg_color",
-              "label": "Fondo del botón",
-              "default": "#ea1c33"
+              "label": "Fondo del botón"
             },
             {
               "type": "color",
               "id": "slide_1_btn_text_hover_color",
-              "label": "Texto del botón con mouse encima",
-              "default": "#ea1c33"
+              "label": "Texto del botón con mouse encima"
             },
             {
               "type": "color",
               "id": "slide_1_btn_bg_hover_color",
-              "label": "Fondo del botón con mouse encima",
-              "default": "#ffffff"
+              "label": "Fondo del botón con mouse encima"
             },
             {
               "type": "color",
               "id": "slide_1_brand_logo",
-              "label": "Marca inactiva en navegación",
-              "default": "#999999"
+              "label": "Marca inactiva en navegación"
             },
             {
               "type": "color",
               "id": "slide_1_brand_logo_active",
-              "label": "Marca activa en navegación",
-              "default": "#ff7e11"
+              "label": "Marca activa en navegación"
             }
           ]
         },
@@ -207,50 +181,42 @@
             {
               "type": "color",
               "id": "slide_2_title_color",
-              "label": "Título",
-              "default": "#FFFFFF"
+              "label": "Título"
             },
             {
               "type": "color",
               "id": "slide_2_description_color",
-              "label": "Descripción",
-              "default": "#FFFFFF"
+              "label": "Descripción"
             },
             {
               "type": "color",
               "id": "slide_2_btn_text_color",
-              "label": "Texto del botón",
-              "default": "#ffffff"
+              "label": "Texto del botón"
             },
             {
               "type": "color",
               "id": "slide_2_btn_bg_color",
-              "label": "Fondo del botón",
-              "default": "#ea1c33"
+              "label": "Fondo del botón"
             },
             {
               "type": "color",
               "id": "slide_2_btn_text_hover_color",
-              "label": "Texto del botón con mouse encima",
-              "default": "#ea1c33"
+              "label": "Texto del botón con mouse encima"
             },
             {
               "type": "color",
               "id": "slide_2_btn_bg_hover_color",
-              "label": "Fondo del botón con mouse encima",
-              "default": "#ffffff"
+              "label": "Fondo del botón con mouse encima"
             },
             {
               "type": "color",
               "id": "slide_2_brand_logo",
-              "label": "Marca inactiva en navegación",
-              "default": "#999999"
+              "label": "Marca inactiva en navegación"
             },
             {
               "type": "color",
               "id": "slide_2_brand_logo_active",
-              "label": "Marca activa en navegación",
-              "default": "#ff7e11"
+              "label": "Marca activa en navegación"
             }
           ]
         },
@@ -260,50 +226,42 @@
             {
               "type": "color",
               "id": "slide_3_title_color",
-              "label": "Título",
-              "default": "#FFFFFF"
+              "label": "Título"
             },
             {
               "type": "color",
               "id": "slide_3_description_color",
-              "label": "Descripción",
-              "default": "#FFFFFF"
+              "label": "Descripción"
             },
             {
               "type": "color",
               "id": "slide_3_btn_text_color",
-              "label": "Texto del botón",
-              "default": "#ffffff"
+              "label": "Texto del botón"
             },
             {
               "type": "color",
               "id": "slide_3_btn_bg_color",
-              "label": "Fondo del botón",
-              "default": "#ea1c33"
+              "label": "Fondo del botón"
             },
             {
               "type": "color",
               "id": "slide_3_btn_text_hover_color",
-              "label": "Texto del botón con mouse encima",
-              "default": "#ea1c33"
+              "label": "Texto del botón con mouse encima"
             },
             {
               "type": "color",
               "id": "slide_3_btn_bg_hover_color",
-              "label": "Fondo del botón con mouse encima",
-              "default": "#ffffff"
+              "label": "Fondo del botón con mouse encima"
             },
             {
               "type": "color",
               "id": "slide_3_brand_logo",
-              "label": "Marca inactiva en navegación",
-              "default": "#999999"
+              "label": "Marca inactiva en navegación"
             },
             {
               "type": "color",
               "id": "slide_3_brand_logo_active",
-              "label": "Marca activa en navegación",
-              "default": "#ff7e11"
+              "label": "Marca activa en navegación"
             }
           ]
         },
@@ -313,50 +271,42 @@
             {
               "type": "color",
               "id": "slide_4_title_color",
-              "label": "Título",
-              "default": "#FFFFFF"
+              "label": "Título"
             },
             {
               "type": "color",
               "id": "slide_4_description_color",
-              "label": "Descripción",
-              "default": "#FFFFFF"
+              "label": "Descripción"
             },
             {
               "type": "color",
               "id": "slide_4_btn_text_color",
-              "label": "Texto del botón",
-              "default": "#ffffff"
+              "label": "Texto del botón"
             },
             {
               "type": "color",
               "id": "slide_4_btn_bg_color",
-              "label": "Fondo del botón",
-              "default": "#ea1c33"
+              "label": "Fondo del botón"
             },
             {
               "type": "color",
               "id": "slide_4_btn_text_hover_color",
-              "label": "Texto del botón con mouse encima",
-              "default": "#ea1c33"
+              "label": "Texto del botón con mouse encima"
             },
             {
               "type": "color",
               "id": "slide_4_btn_bg_hover_color",
-              "label": "Fondo del botón con mouse encima",
-              "default": "#ffffff"
+              "label": "Fondo del botón con mouse encima"
             },
             {
               "type": "color",
               "id": "slide_4_brand_logo",
-              "label": "Marca inactiva en navegación",
-              "default": "#999999"
+              "label": "Marca inactiva en navegación"
             },
             {
               "type": "color",
               "id": "slide_4_brand_logo_active",
-              "label": "Marca activa en navegación",
-              "default": "#ff7e11"
+              "label": "Marca activa en navegación"
             }
           ]
         },
@@ -366,26 +316,22 @@
             {
               "type": "color",
               "id": "product_card_bottom_bar_color",
-              "label": "Pleca inferior",
-              "default": "#cccccc"
+              "label": "Pleca inferior"
             },
             {
               "type": "color",
               "id": "product_card_bottom_bar_color_hover",
-              "label": "Pleca inferior con mouse encima",
-              "default": "#ff7e11"
+              "label": "Pleca inferior con mouse encima"
             },
             {
               "type": "color",
               "id": "product_card_background_color",
-              "label": "Fondo de producto",
-              "default": "rgba(255,255,255,0)"
+              "label": "Fondo de producto"
             },
             {
               "type": "color",
               "id": "product_compared_price_color",
-              "label": "Color precio comparativo",
-              "default": "#f44336"
+              "label": "Color precio comparativo"
             }
           ]
         }
@@ -1542,26 +1488,22 @@
             {
               "type": "checkbox",
               "id": "footer_display_contact_data",
-              "label": "Mostrar datos",
-              "default": true
+              "label": "Mostrar datos"
             },
             {
               "type": "text",
               "id": "footer_contact_data",
-              "label": "Contacto y/o ubicación",
-              "default": "CALLE 000, COLONIA, DELEGACION/MUNICIPIO, MÉXICO, ESTADO, C.P. 00000 TELÉFONO (+52) 000 000000 - (+52) 000 000000 INFO@MIEMPRESA.COM"
+              "label": "Contacto y/o ubicación"
             },
             {
               "type": "checkbox",
               "id": "footer_display_social",
-              "label": "Mostrar redes sociales",
-              "default": true
+              "label": "Mostrar redes sociales"
             },
             {
               "type": "checkbox",
               "id": "footer_display_payment_methods",
-              "label": "Mostrar métodos de pago",
-              "default": true
+              "label": "Mostrar métodos de pago"
             }
           ]
         },
@@ -1657,10 +1599,6 @@
                 {
                   "value": "featured-newsletter",
                   "label": "Newsletter"
-                },
-                {
-                  "value": "featured-instagram",
-                  "label": "Galería Instagram"
                 }
               ]
             },
@@ -1693,10 +1631,6 @@
                 {
                   "value": "featured-newsletter",
                   "label": "Newsletter"
-                },
-                {
-                  "value": "featured-instagram",
-                  "label": "Galería Instagram"
                 }
               ]
             },
@@ -1729,10 +1663,6 @@
                 {
                   "value": "featured-newsletter",
                   "label": "Newsletter"
-                },
-                {
-                  "value": "featured-instagram",
-                  "label": "Galería Instagram"
                 }
               ]
             },
@@ -1765,10 +1695,6 @@
                 {
                   "value": "featured-newsletter",
                   "label": "Newsletter"
-                },
-                {
-                  "value": "featured-instagram",
-                  "label": "Galería Instagram"
                 }
               ]
             },
@@ -1801,46 +1727,6 @@
                 {
                   "value": "featured-newsletter",
                   "label": "Newsletter"
-                },
-                {
-                  "value": "featured-instagram",
-                  "label": "Galería Instagram"
-                }
-              ]
-            },
-            {
-              "type": "select",
-              "id": "frontpage_section_6",
-              "label": "Sección 6",
-              "default": "featured-instagram",
-              "options": [
-                {
-                  "value": "none",
-                  "label": "Ningúno"
-                },
-                {
-                  "value": "featured-slider",
-                  "label": "Slider principal"
-                },
-                {
-                  "value": "featured-products",
-                  "label": "Productos destacados"
-                },
-                {
-                  "value": "featured-banner",
-                  "label": "Banner"
-                },
-                {
-                  "value": "featured-collections",
-                  "label": "Colecciones destacadas"
-                },
-                {
-                  "value": "featured-newsletter",
-                  "label": "Newsletter"
-                },
-                {
-                  "value": "featured-instagram",
-                  "label": "Instagram"
                 }
               ]
             }
@@ -1869,8 +1755,7 @@
             {
               "type": "checkbox",
               "id": "slide_1_img",
-              "label": "Mostrar imagen",
-              "default": true
+              "label": "Mostrar imagen"
             },
             {
               "type": "text",
@@ -1895,7 +1780,6 @@
             {
               "type": "checkbox",
               "id": "slide_1_nav_show_brand_img",
-              "default": false,
               "label": "Mostrar logotipo de marca"
             },
             {
@@ -1938,8 +1822,7 @@
             {
               "type": "checkbox",
               "id": "slide_2_img",
-              "label": "Mostrar imagen",
-              "default": false
+              "label": "Mostrar imagen"
             },
             {
               "type": "text",
@@ -1964,7 +1847,6 @@
             {
               "type": "checkbox",
               "id": "slide_2_nav_show_brand_img",
-              "default": false,
               "label": "Mostrar logotipo de marca"
             },
             {
@@ -1996,8 +1878,7 @@
             {
               "type": "checkbox",
               "id": "slide_3",
-              "label": "Mostrar Slider 3",
-              "default": false
+              "label": "Mostrar Slider 3"
             },
             {
               "type": "image",
@@ -2033,7 +1914,6 @@
             {
               "type": "checkbox",
               "id": "slide_3_nav_show_brand_img",
-              "default": false,
               "label": "Mostrar logotipo de marca"
             },
             {
@@ -2065,8 +1945,7 @@
             {
               "type": "checkbox",
               "id": "slide_4",
-              "label": "Mostrar Slider 4",
-              "default": false
+              "label": "Mostrar Slider 4"
             },
             {
               "type": "image",
@@ -2102,7 +1981,6 @@
             {
               "type": "checkbox",
               "id": "slide_4_nav_show_brand_img",
-              "default": false,
               "label": "Mostrar logotipo de marca"
             },
             {
@@ -2160,14 +2038,12 @@
             {
               "type": "collection",
               "id": "featured_products_collection",
-              "label": "Colección de productos destacados",
-              "default": "inicio"
+              "label": "Colección de productos destacados"
             },
             {
               "type": "text",
               "id": "featured_products_collection_description",
-              "label": "Descripción de la colección",
-              "default": "Lorem Ipsum"
+              "label": "Descripción de la colección"
             },
             {
               "type": "text",
@@ -2190,13 +2066,11 @@
             {
               "type": "checkbox",
               "id": "home_banner_image",
-              "default": true,
               "label": "Mostrar imagen de fondo"
             },
             {
               "type": "checkbox",
               "id": "home_banner_responsive",
-              "default": false,
               "label": "Banner responsivo",
               "info": "ünicamente mostrará la imagen cómo un enlace."
             },
@@ -2210,26 +2084,22 @@
               "type": "color",
               "id": "home_banner_background_color",
               "label": "Color de fondo",
-              "default": "#cccccc",
               "info": "Usualmente su usa cuando no hay imagen definida."
             },
             {
               "type": "text",
               "id": "home_banner_title",
-              "label": "Título",
-              "default": "Lorem Ipsum"
+              "label": "Título"
             },
             {
               "type": "color",
               "id": "home_banner_title_color",
-              "label": "Color del título",
-              "default": "#ffffff"
+              "label": "Color del título"
             },
             {
               "type": "text",
               "id": "home_banner_desc",
-              "label": "Descripción",
-              "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati harum omnis quidem ex? Soluta magni dolorem tenetur porro nostrum eos, modi perspiciatis minima."
+              "label": "Descripción"
             },
             {
               "type": "select",
@@ -2250,51 +2120,43 @@
             {
               "type": "color",
               "id": "home_banner_desc_color",
-              "label": "Color de la descripción",
-              "default": "#ffffff"
+              "label": "Color de la descripción"
             },
             {
               "type": "checkbox",
               "id": "home_banner_btn",
-              "default": false,
               "label": "Mostrar botón de enlace"
             },
             {
               "type": "text",
               "id": "home_banner_btn_text",
               "label": "Texto del botón",
-              "default": "Comprar ahora",
               "info": "Para mostrar todos los productos de esta colección deja vacío este campo"
             },
             {
               "type": "text",
               "id": "home_banner_btn_url",
-              "label": "Ruta de destino",
-              "default": "#"
+              "label": "Ruta de destino"
             },
             {
               "type": "color",
               "id": "home_banner_btn_text_color",
-              "label": "Color del texto del botón",
-              "default": "#ffffff"
+              "label": "Color del texto del botón"
             },
             {
               "type": "color",
               "id": "home_banner_btn_bg_color",
-              "label": "Color de fondo del botón",
-              "default": "#43547e"
+              "label": "Color de fondo del botón"
             },
             {
               "type": "color",
               "id": "home_banner_btn_text_color_hover",
-              "label": "Color del texto del botón con mouse encima.",
-              "default": "#ffffff"
+              "label": "Color del texto del botón con mouse encima."
             },
             {
               "type": "color",
               "id": "home_banner_btn_bg_color_hover",
-              "label": "Color de fondo del botón con mouse encima.",
-              "default": "#417f94"
+              "label": "Color de fondo del botón con mouse encima."
             }
           ]
         }
@@ -2309,20 +2171,17 @@
             {
               "type": "text",
               "id": "home_collections_title",
-              "label": "Título de las Colecciones",
-              "default": "Colecciones destacadas"
+              "label": "Título de las Colecciones"
             },
             {
               "type": "text",
               "id": "home_collections_description",
-              "label": "Descripción de las Colecciones",
-              "default": "Estas son nuestras selecciones más destacadas."
+              "label": "Descripción de las Colecciones"
             },
             {
               "type": "collection",
               "id": "featured_collection_1",
-              "label": "Colección de productos 1",
-              "default": "inicio"
+              "label": "Colección de productos 1"
             },
             {
               "type": "collection",
@@ -2354,47 +2213,6 @@
       ]
     },
     {
-      "name": "Página de Inicio - Instagram",
-      "icon": "home-page",
-      "sections": [
-        {
-          "settings": [
-            {
-              "type": "paragraph",
-              "content": "Esta configuración requiere de conocimientos avanzados, cualquier duda contacta al equipo de Shoperti"
-            },
-            {
-              "type": "text",
-              "id": "instagram_title",
-              "label": "Título de sección"
-            },
-            {
-              "type": "color",
-              "id": "instagram_title_color",
-              "label": "Color del título",
-              "default": "#ff7e11"
-            },
-            {
-              "type": "color",
-              "id": "instagram_background_color",
-              "label": "Color de fondo",
-              "default": "#ffffff"
-            },
-            {
-              "type": "text",
-              "id": "instagram_id",
-              "label": "Id de usuario"
-            },
-            {
-              "type": "text",
-              "id": "instagram_token",
-              "label": "Token de sesión"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "name": "Página de Inicio - Newsletter",
       "icon": "home-page",
       "sections": [
@@ -2404,8 +2222,7 @@
               "type": "checkbox",
               "id": "show_newsletter",
               "label": "Mostrar newsletter",
-              "info": "Banner de suscripción",
-              "default": true
+              "info": "Banner de suscripción"
             },
             {
               "type": "text",
@@ -2415,33 +2232,28 @@
             {
               "type": "color",
               "id": "featured_newsletter_title_color",
-              "label": "Color del título",
-              "default": "#000000"
+              "label": "Color del título"
             },
             {
               "type": "color",
               "id": "featured_newsletter_background_color",
-              "label": "Color de fondo",
-              "default": "#efefef"
+              "label": "Color de fondo"
             },
             {
               "type": "image",
               "id": "featured_newsletter_background_img",
               "label": "Imagen de fondo",
-              "default": "",
               "info": "1280px de ancho recomendado"
             },
             {
               "type": "checkbox",
               "id": "featured_newsletter_text_shadow",
-              "label": "Sombra en título",
-              "default": true
+              "label": "Sombra en título"
             },
             {
               "type": "checkbox",
               "id": "featured_newsletter_overlay",
-              "label": "Mostrar capa oscura",
-              "default": true
+              "label": "Mostrar capa oscura"
             }
           ]
         },
@@ -2451,51 +2263,43 @@
             {
               "type": "text",
               "id": "newsletter_modal_title",
-              "label": "Título",
-              "default": "Entérate de todas nuestras ofertas"
+              "label": "Título"
             },
             {
               "type": "color",
               "id": "newsletter_modal_title_color",
-              "label": "Color del título",
-              "default": "#ffffff"
+              "label": "Color del título"
             },
             {
               "type": "text",
               "id": "newsletter_modal_description",
-              "label": "Descripción",
-              "default": "Esporádicamente te informaremos de lo más importante."
+              "label": "Descripción"
             },
             {
               "type": "color",
               "id": "newsletter_modal_description_color",
-              "label": "Color de la descripción",
-              "default": "#ffffff"
+              "label": "Color de la descripción"
             },
             {
               "type": "text",
               "id": "newsletter_modal_btn",
-              "label": "Texto del botón",
-              "default": "Suscríbete"
+              "label": "Texto del botón"
             },
             {
               "type": "image",
               "id": "newsletter_modal_background_image",
               "label": "Imagen de fondo",
-              "default": "",
               "info": "Tamaño recomendado de 600px de ancho por 340px."
             },
             {
               "type": "checkbox",
               "id": "newsletter_modal_image_enable",
-              "label": "Mostrar imagen de fondo",
-              "default": false
+              "label": "Mostrar imagen de fondo"
             },
             {
               "type": "color",
               "id": "newsletter_modal_background_color",
-              "label": "Color de fondo",
-              "default": "#efefef"
+              "label": "Color de fondo"
             }
           ]
         },
@@ -2506,15 +2310,13 @@
               "type": "checkbox",
               "id": "newsletter_modal",
               "label": "Activar",
-              "info": "El modal aparecerá únicamente una vez al usuario.",
-              "default": false
+              "info": "El modal aparecerá únicamente una vez al usuario."
             },
             {
               "type": "checkbox",
               "id": "newsletter_modal_development",
               "label": "Modo de desarrollo",
-              "info": "El modal aparecerá siempre. Si lo deja activo será molesto al usuario.",
-              "default": false
+              "info": "El modal aparecerá siempre. Si lo deja activo será molesto al usuario."
             }
           ]
         }
@@ -2530,20 +2332,17 @@
             {
               "type": "text",
               "id": "product_ribbon_text",
-              "label": "Texto de la cinta (ribbon)",
-              "default": "Oferta"
+              "label": "Texto de la cinta (ribbon)"
             },
             {
               "type": "text",
               "id": "product_compared_text",
-              "label": "Texto del comparativo",
-              "default": "Precio normal:"
+              "label": "Texto del comparativo"
             },
             {
               "type": "text",
               "id": "product_view_text",
-              "label": "Texto del botón",
-              "default": "Ver más"
+              "label": "Texto del botón"
             },
             {
               "type": "checkbox",
@@ -2554,8 +2353,7 @@
             {
               "type": "text",
               "id": "btn_product_buy_now_text",
-              "label": "Texto del botón comprar ya",
-              "default": "Comprar Ya"
+              "label": "Texto del botón comprar ya"
             },
             {
               "type": "text",
@@ -2573,8 +2371,7 @@
               "type": "checkbox",
               "id": "related_products",
               "label": "Mostrar productos relacionados",
-              "info": "La relación se basa en las etiquetas del producto.",
-              "default": true
+              "info": "La relación se basa en las etiquetas del producto."
             }
           ]
         },
@@ -2584,8 +2381,7 @@
             {
               "type": "checkbox",
               "id": "enable_product_image_zoom",
-              "label": "Habilitar zoom en imagen principal",
-              "default": true
+              "label": "Habilitar zoom en imagen principal"
             },
             {
               "type": "text",
@@ -2607,14 +2403,12 @@
             {
               "type": "checkbox",
               "id": "show_vendor_name",
-              "label": "Mostrar marca del producto",
-              "default": true
+              "label": "Mostrar marca del producto"
             },
             {
               "type": "checkbox",
               "id": "show_sku_code",
-              "label": "Mostrar Sku del producto",
-              "default": false
+              "label": "Mostrar Sku del producto"
             }
           ]
         },
@@ -2703,7 +2497,6 @@
     },
     {
       "name": "Contacto",
-      "icon": "contact-page",
       "sections": [
         {
           "header": "Mapa",
@@ -2763,14 +2556,12 @@
             {
               "type": "text",
               "id": "cart_btn_buy_text",
-              "label": "Texto de boton comprar",
-              "default": "Prodecer a comprar"
+              "label": "Texto de boton comprar"
             },
             {
               "type": "text",
               "id": "cart_btn_more_text",
-              "label": "Texto de boton comprar más",
-              "default": "Comprar más"
+              "label": "Texto de boton comprar más"
             }
           ]
         },
@@ -2780,20 +2571,17 @@
             {
               "type": "checkbox",
               "id": "enabled_gift_option",
-              "label": "Mostrar opciones para regalo.",
-              "default": false
+              "label": "Mostrar opciones para regalo."
             },
             {
               "type": "text",
               "id": "gift_title_message",
-              "label": "Título",
-              "default": "Esto es un regalo. Incluir el siguiente mensaje (150 caracteres máximo)."
+              "label": "Título"
             },
             {
               "type": "text",
               "id": "gift_btn_message",
-              "label": "Texto del botón",
-              "default": "Agregar mensaje"
+              "label": "Texto del botón"
             }
           ]
         },
@@ -2803,20 +2591,17 @@
             {
               "type": "checkbox",
               "id": "enabled_customer_note_option",
-              "label": "Mostrar campo nota del cliente.",
-              "default": true
+              "label": "Mostrar campo nota del cliente."
             },
             {
               "type": "text",
               "id": "customer_title_note",
-              "label": "Título",
-              "default": "Agrega alguna nota o comentario al vendedor:"
+              "label": "Título"
             },
             {
               "type": "text",
               "id": "customer_btn_note_text",
-              "label": "Texto del botón",
-              "default": "Agregar nota"
+              "label": "Texto del botón"
             }
           ]
         }
@@ -2833,50 +2618,49 @@
               "type": "text",
               "id": "facebook_link",
               "label": "Facebook",
-              "default": "https://www.facebook.com/ShopertiHQ",
-              "info": "https://www.facebook.com/shoperti"
+              "info": "https://www.facebook.com/kometia"
             },
             {
               "type": "text",
               "id": "twitter_link",
               "label": "Twitter",
-              "info": "https://twitter.com/shoperti"
+              "info": "https://twitter.com/kometia"
             },
             {
               "type": "text",
               "id": "google_link",
               "label": "Google+",
-              "info": "https://plus.google.com/+shoperti"
+              "info": "https://plus.google.com/+kometia"
             },
             {
               "type": "text",
               "id": "pinterest_link",
               "label": "Pinterest",
-              "info": "https://www.pinterest.com/shoperti/"
+              "info": "https://www.pinterest.com/kometia/"
             },
             {
               "type": "text",
               "id": "instagram_link",
               "label": "Instagram",
-              "info": "https://instagram.com/shoperti/"
+              "info": "https://instagram.com/kometia/"
             },
             {
               "type": "text",
               "id": "youtube_link",
               "label": "Youtube",
-              "info": "https://www.youtube.com/user/shoperti"
+              "info": "https://www.youtube.com/user/kometia"
             },
             {
               "type": "text",
               "id": "vimeo_link",
               "label": "Vimeo",
-              "info": "https://vimeo.com/shoperti"
+              "info": "https://vimeo.com/kometia"
             },
             {
               "type": "text",
               "id": "tumblr_link",
               "label": "Tumblr",
-              "info": "http://shoperti.tumblr.com/"
+              "info": "http://kometia.tumblr.com/"
             },
             {
               "type": "text",
@@ -2892,38 +2676,32 @@
             {
               "type": "checkbox",
               "id": "enable_share_products",
-              "label": "Habilitar compartir productos",
-              "default": true
+              "label": "Habilitar compartir productos"
             },
             {
               "type": "checkbox",
               "id": "enable_share_blog",
-              "label": "Habilitar compartir blog y posts",
-              "default": true
+              "label": "Habilitar compartir blog y posts"
             },
             {
               "type": "checkbox",
               "id": "share_facebook",
-              "label": "Compartir en Facebook",
-              "default": true
+              "label": "Compartir en Facebook"
             },
             {
               "type": "checkbox",
               "id": "share_twitter",
-              "label": "Tuitear en Twitter",
-              "default": true
+              "label": "Tuitear en Twitter"
             },
             {
               "type": "checkbox",
               "id": "share_pinterest",
-              "label": "Hacer pin en Pinterest",
-              "default": true
+              "label": "Hacer pin en Pinterest"
             },
             {
               "type": "checkbox",
               "id": "share_google",
-              "label": "+1 en Google Plus",
-              "default": true
+              "label": "+1 en Google Plus"
             }
           ]
         }
