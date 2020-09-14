@@ -11,13 +11,7 @@ var formatMoney = function(price) {
 var quantityPluralize = function(data) {
   return data > 1 ? data +' productos' : data +' producto';
 }
-$(document).ajaxStart(function(){
-$(document.body).css({'cursor':'wait'});
-$('body a').css({'pointer-events':'none'})})
-.ajaxStop(function(){
-$(document.body).css({'cursor':'default'});
-$('body a').css({'pointer-events':'auto'})}).ready(
-function() {
+$(document).ready(function() {
   $("p:contains('<meta charset=\"utf-8\" \/>')").remove();
 
   setTimeout( function(){
